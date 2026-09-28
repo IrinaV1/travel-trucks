@@ -5,9 +5,10 @@ import css from './RatingStars.module.css'
 
 type RatingStarsProps = {
   rating: number;
+    showValue?: boolean;
 };
 
-export default function RatingStars({ rating }: RatingStarsProps) {
+export default function RatingStars({ rating, showValue = true, }: RatingStarsProps) {
   return (
     <div className={css.rating}>
       <div className={css.stars}>
@@ -23,10 +24,12 @@ export default function RatingStars({ rating }: RatingStarsProps) {
           return <MdStarBorder key={star} />;
         })}
       </div>
-
-      <span className={css.dot}>•</span>
-
-      <span className={css.value}>{rating}</span>
+  {showValue && (
+        <>
+          <span className={css.dot}>•</span>
+          <span className={css.value}>{rating}</span>
+        </>
+      )}
     </div>
 
   );
