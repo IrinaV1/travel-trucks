@@ -1,5 +1,5 @@
 {
-  "name": "nextlevel",
+  "name": "travel-trucks",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,11 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.3.6",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "react-icons": "^5.7.0",
-    "react-rating-stars-component": "^2.2.0"
+    "modern-normalize": "^3.0.1",
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -21,7 +20,7 @@
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.3.6",
+    "eslint-config-next": "16.4.0",
     "typescript": "^5"
   }
 }
