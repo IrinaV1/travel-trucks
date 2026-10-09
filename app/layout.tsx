@@ -5,26 +5,27 @@ import Header from "@/components/Header/Header";
 
 const inter = Inter({
   variable: "--font-inter",
-   weight: ['400', '500', '600'],
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
-    display: 'swap',
+  display: "swap",
 });
-
 
 export const metadata: Metadata = {
   title: "Campers of Your Dreams",
   description: "Find the perfect camper for your next adventure.",
 };
 
-export default function RootLayout({ children }: Readonly<{
+export default function RootLayout({
+  children,
+}: Readonly<{
   children: React.ReactNode;
-  // modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={inter.variable}>
-         <Header/>
-        {children}</body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

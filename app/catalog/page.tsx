@@ -1,3 +1,10 @@
+import Card from "@/components/Card/Card";
+import css from './Catalog.module.css';
+
 export default function Catalog(){
-    return(<h1>Hello</h1>)
+    return(
+        <main className={css.main}>
+            <Card camperId="test-camper"/>
+        </main>
+    )
 }

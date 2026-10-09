@@ -15,7 +15,7 @@ export default function Hero (){
         </div>
           <Link
             className={`${css.link} a`}
-            href="/"
+            href="/catalog"
           >
            View Now
           </Link>
