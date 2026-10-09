@@ -4,25 +4,24 @@
   background-position: center;
   background-repeat: no-repeat;
    margin: 0 auto;
-    width: 100%;
-     max-width: 1440px;
   height: 768px;
 }
 .containerTitle {
-  max-width: 571px;
-padding-top: 188px;
+display: flex;
+flex-direction: column;
+width: 571px;
+padding-top: 260px;
 margin-bottom: 40px;
 }
 .title {
-font-family: "Inter", sans-serif;
 font-weight: 600;
 font-size: 48px;
-line-height: 0.67;
+line-height: 0.66;
 color: var(--text-primary);
 margin-bottom: 16px;
+  white-space: nowrap;
 }
 .subtitle{
-font-family: "Inter", sans-serif;
 font-weight: 600;
 font-size: 24px;
 line-height: 1.33;
