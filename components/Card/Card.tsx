@@ -20,6 +20,7 @@ export default function Card({ camperId }: CardProps) {
           aria-hidden="true"
           width={219}
           height={240}
+          loading="eager"
         />
       </div>
 
@@ -36,7 +37,7 @@ export default function Card({ camperId }: CardProps) {
               <span className={css.infoText}>(2 Reviews)</span>
             </div>
             <div className={css.location}>
-              <CiMap className={css.icon} />
+              <CiMap className={css.icon} size={24}/>
               <span className={css.infoText}>Kyiv, Ukraine</span>
             </div>
           </div>
