@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+    border-radius: 16px;
+padding: 24px;
+width: 888px;
+height: 840px;
+background-color: #f7f7f7;
+}
+
+.title {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+}
+
+.text {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-small);
+}

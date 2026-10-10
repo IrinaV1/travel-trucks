@@ -1,16 +1,19 @@
-// type Props = {
-//   params: Promise<{
-//     camperId: string;
-//   }>;
-// };
+import NotFound from "@/app/not-found";
 
-// export default async function CamperDetailsPage({ params }: Props) {
-//   const { camperId } = await params;
+type Props = {
+  params: Promise<{
+    camperId: string;
+  }>;
+};
 
-//   return (
-//     <main>
-//       <h1>Camper details</h1>
-//       <p>Camper ID: {camperId}</p>
-//     </main>
-//   );
-// }
+export default async function CamperDetailsPage({ params }: Props) {
+  const { camperId } = await params;
+
+  return (
+    <main>
+      <h1>Camper details</h1>
+      <p>Camper ID: {camperId}</p>
+      <NotFound/>
+    </main>
+  );
+}
