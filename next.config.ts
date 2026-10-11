@@ -7,7 +7,9 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
     images: {
 	  remotePatterns: [
-	      { protocol: 'https', hostname: 'picsum.photos' }
+	      { protocol: 'https',
+        hostname: "ac.goit.global",
+        pathname: "/fullstack/career/campers/**", }
 	    ]
 	},
 };

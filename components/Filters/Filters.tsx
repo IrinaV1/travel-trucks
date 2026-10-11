@@ -42,42 +42,42 @@ export default function Filters() {
         <fieldset className={css.filterGroup}>
           <legend className={css.filterLegend}>Camper form</legend>
           <label className={css.filterOption}>
-            <input type="checkbox" name="form" value="alcove" />
+            <input type="radio" name="form" value="alcove" />
             Alcove
           </label>
           <label className={css.filterOption}>
-            <input type="checkbox" name="form" value="panel_van" />
+            <input type="radio" name="form" value="panel_van" />
             Panel Van
           </label>
           <label className={css.filterOption}>
-            <input type="checkbox" name="form" value="integrated" />
+            <input type="radio" name="form" value="integrated" />
             Integrated
           </label>
 
           <label className={css.filterOption}>
-            <input type="checkbox" name="form" value="semi_integrated" />
+            <input type="radio" name="form" value="semi_integrated" />
             Semi Integrated
           </label>
         </fieldset>
         <fieldset className={css.filterGroup}>
           <legend className={css.filterLegend}>Engine</legend>
           <label className={css.filterOption}>
-            <input type="checkbox" name="engine" value="diesel" />
+            <input type="radio" name="engine" value="diesel" />
             Diesel
           </label>
 
           <label className={css.filterOption}>
-            <input type="checkbox" name="engine" value="petrol" />
+            <input type="radio" name="engine" value="petrol" />
             Petrol
           </label>
 
           <label className={css.filterOption}>
-            <input type="checkbox" name="engine" value="hybrid" />
+            <input type="radio" name="engine" value="hybrid" />
             Hybrid
           </label>
 
           <label className={css.filterOption}>
-            <input type="checkbox" name="engine" value="electric" />
+            <input type="radio" name="engine" value="electric" />
             Electric
           </label>
         </fieldset>
@@ -85,12 +85,12 @@ export default function Filters() {
           <legend className={css.filterLegend}>Transmission</legend>
 
           <label className={css.filterOption}>
-            <input type="checkbox" name="transmission" value="automatic" />
+            <input type="radio" name="transmission" value="automatic" />
             Automatic
           </label>
 
           <label className={css.filterOption}>
-            <input type="checkbox" name="transmission" value="manual" />
+            <input type="radio" name="transmission" value="manual" />
             Manual
           </label>
         </fieldset>

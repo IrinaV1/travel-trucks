@@ -4,19 +4,20 @@ import Link from "next/link";
 import { FaStar } from "react-icons/fa";
 import { MdDirectionsCar } from "react-icons/md";
 import { CiMap } from "react-icons/ci";
+import { CatalogCamper } from "@/types/camper";
 
 
 type CardProps = {
-  camperId: string;
+  camper: CatalogCamper;
 };
-export default function Card({ camperId }: CardProps) {
+export default function Card({ camper }: CardProps) {
   return (
     <div className={css.containerCard}>
       <div className={css.wrapperImage}>
         <Image
           className={css.image}
-          src="/truck.jpg"
-          alt="travel truck"
+          src={camper.coverImage || "/truck.jpg"}
+          alt={camper.name}
           aria-hidden="true"
           width={219}
           height={240}
@@ -28,17 +29,17 @@ export default function Card({ camperId }: CardProps) {
         <div className={css.wrapperTitle}>
           <div className={css.titlePrice}>
             <h2 className={css.title}>Mavericks</h2>
-            <p className={css.price}>€8000</p>
+            <p className={css.price}>{camper.price}</p>
           </div>
           <div className={css.info}>
             <div className={css.rating}>
               <FaStar className={css.starIcon} />
-              <span className={css.infoText}>4.4</span>
-              <span className={css.infoText}>(2 Reviews)</span>
+              <span className={css.infoText}>{camper.rating}</span>
+              <span className={css.infoText}>({camper.totalReviews} Reviews)</span>
             </div>
             <div className={css.location}>
               <CiMap className={css.icon} size={24}/>
-              <span className={css.infoText}>Kyiv, Ukraine</span>
+              <span className={css.infoText}>{camper.location}</span>
             </div>
           </div>
         </div>
@@ -77,7 +78,7 @@ export default function Card({ camperId }: CardProps) {
         </ul>
         <Link
           className={css.link}
-          href={`/catalog/${camperId}`}
+          href={`/catalog/${camper.id}`}
           target="_blank"
           rel="noopener noreferrer"
         >
