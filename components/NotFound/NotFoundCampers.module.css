@@ -1,0 +1,81 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+  border-radius: 16px;
+  padding: 24px;
+  width: 888px;
+  height: 840px;
+  background-color: #f7f7f7;
+}
+.image {
+  margin-bottom: 21px;
+}
+.wrapperText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 43px;
+}
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #101828;
+  margin-bottom: 16px;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #101828;
+}
+.filterBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn {
+    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    box-sizing: border-box;
+  width: 192px;
+  height: 56px;
+    padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  border-radius: 200px;
+    text-decoration: none;
+  cursor: pointer;
+}
+.submitBtn {
+  color: #fff;
+  background-color: #829b91;
+}
+.clearBtn {
+  border: 1px solid #dadde1;
+  color: #101828;
+  background-color: #fff;
+
+  gap: 4px;
+}
+.clearIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #000;
+}

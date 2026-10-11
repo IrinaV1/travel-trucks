@@ -11,13 +11,18 @@ export default function NotFound() {
         alt="Page not found"
         width={488}
         height={463}
+        loading="eager"
+        className={css.image}
       />
-      <h1 className={css.title}>No campers found</h1>
+      <div className={css.wrapperText}>
+      <h1 className={css.title}>Page Not Found</h1>
       <p className={css.text}>
-       We couldn`t find any campers that match your filters. Try adjusting your search or clearing some filters.
+         Sorry, we couldn&apos;t find the page you&apos;re looking for.</p>
+   <p className={css.text}> It may have been moved or no longer exists.
       </p>
+      </div>
       <Link href="/" className={css.btn}>
-        На головну
+        Back to Home
       </Link>
     </div>
   );
