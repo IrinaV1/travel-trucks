@@ -1,41 +1,37 @@
-import { Suspense } from "react";
+import SwiperCamper from "@/components/SwiperCamper/SwiperCamper";
 
-import CamperDetailsClient from "./CamperDetailsClient";
 import { getCamperById } from "@/lib/api/serverApi";
-import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
-import { connection } from "next/server"; 
+
+import ReviewsCard from "@/components/ReviewsCard/ReviewsCard";
+import { notFound } from "next/navigation";
 
 
-type Props = {
-  params: Promise<{
-    camperId: string;
-  }>;
+
+type Props = {  params: Promise<{ camperId: string }>;
 };
 
 
-export default async function CamperDetailsPage({ params }: Props) {
-
-  return (
-  <Suspense fallback={<p>Загрузка страницы кемпера...</p>}>
-<CamperDetailsContent params={params} />
-</Suspense>
-  );
-}
-
-  const noop = () => {};
-async function CamperDetailsContent({ params }: Props) {
-await connection(); 
+export default async function CamperDetailsPage( { params }: Props) {
 const { camperId } = await params;
-  const queryClient = new QueryClient();
+let camper;
+  try {
+ camper = await getCamperById(camperId);
+ 
+  } catch(error) {
+      console.error("Failed to load camper:", error);
+    notFound();
+  }
 
-    await queryClient.query({
-    queryKey: ["camper", camperId],
-    queryFn: () => getCamperById(camperId),
-  }).catch(noop);
+
   return (
-    // Передаем кэшированные данные клиенту через HydrationBoundary
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <CamperDetailsClient camperId={camperId} />
-    </HydrationBoundary>
+    <main>
+      <h1>{camper.name}</h1>
+      <p>{camper.location}</p>
+      <p>€{camper.price}</p>
+      
+
+      <SwiperCamper images={camper.gallery ?? []} />
+    <ReviewsCard />
+    </main>
   );
 }

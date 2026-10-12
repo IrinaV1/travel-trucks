@@ -25,19 +25,18 @@ export default function SwiperCamper({ images = [],
  }: SwiperCamperProps) {
  const [thumbsSwiper, setThumbsSwiper] =
   useState<SwiperType | null>(null);
-
+  console.log("Swiper images:", images);
    if (images.length === 0) {
     return null;
   }
     const sortedImages = [...images].sort((a, b) => a.order - b.order);
-
-
     return (
        <div className={css.gallery}>
       
       <Swiper
+        slidesPerView={1}
+  spaceBetween={27}
         loop={sortedImages.length > 1}
-        spaceBetween={10}
         thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed
               ? thumbsSwiper
               : null,}}
@@ -50,10 +49,10 @@ export default function SwiperCamper({ images = [],
           <Image 
           src={image.original} 
            alt={`Camper photo ${index + 1}`}
-                fill
-                sizes="(max-width: 638px) 100vw, 638px"
+  width={638}
+  height={505}
+                  priority={index === 0}
                  loading={index === 0 ? "eager" : "lazy"}
-                 preload={index === 0}
                 className={css.image}
           />
         </div>
@@ -67,7 +66,7 @@ export default function SwiperCamper({ images = [],
       <Swiper
         onSwiper={setThumbsSwiper}
         loop
-        spaceBetween={10}
+        spaceBetween={32}
         slidesPerView={4}
         freeMode
         watchSlidesProgress
@@ -80,10 +79,8 @@ export default function SwiperCamper({ images = [],
           <Image 
           src={image.thumb}
           alt={`Camper thumbnail ${index + 1}`}
-          fill
-           sizes="(max-width: 543px) calc((100vw) / 4), 136px"
-            loading={index === 0 ? "eager" : "lazy"}
-                  preload={index === 0}
+ width={136}
+ height={144}
                   className={css.image}
                   />
                   </div>

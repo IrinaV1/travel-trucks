@@ -1,0 +1,24 @@
+.containerReviews{
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 16px;
+padding: 16px;
+width: 623px;
+height: 180px;
+    background-color: #f7f7f7;
+}
+.wrapperReviews{
+    display: flex;
+align-items: center;
+justify-content: center;
+gap: 16px;
+    width: 172px;
+height: 60px;
+}
+.authorImage{
+    border-radius: 60px;
+width: 60px;
+height: 60px;
+background-color: #fff;
+}

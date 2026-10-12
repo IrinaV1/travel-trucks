@@ -1,41 +1,30 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { api } from '../../api';
-import { isAxiosError } from 'axios';
-import { logErrorResponse } from '../../_utils/utils';
-
-
+import { NextRequest, NextResponse } from "next/server";
+import { api } from "../../api";
+import { isAxiosError } from "axios";
+import { logErrorResponse } from "../../_utils/utils";
 
 type Props = {
   params: Promise<{ camperId: string }>;
 };
 
-export async function GET(
-  request: NextRequest,
-  { params }: Props
-) {
+export async function GET(request: NextRequest, { params }: Props) {
   try {
     const { camperId } = await params;
 
-    const res = await api(
-      `/campers/${camperId}`
-    );
+    const res = await api(`/campers/${camperId}`);
 
-    
-      return NextResponse.json(
-res.data, { status: res.status }
-      );
-
-  } catch(error) {
-        if (isAxiosError(error)) {
+    return NextResponse.json(res.data, { status: res.status });
+  } catch (error) {
+    if (isAxiosError(error)) {
       logErrorResponse(error.response?.data);
       return NextResponse.json(
         { error: error.message, response: error.response?.data },
-        { status: error.status }
+        { status: error.status },
       );
     }
     return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+      { error: "Internal server error" },
+      { status: 500 },
     );
   }
 }
