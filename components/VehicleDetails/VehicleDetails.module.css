@@ -1,0 +1,70 @@
+.containerVehicleDetails{
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+padding: 24px;
+width: 650px;
+height: 360px;
+background-color: #f7f7f7;
+}
+
+.vehicleDetails::after {
+  content: "";
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #dadde1;
+  margin: 16px 0;
+}
+.title{
+    font-weight: 600;
+font-size: 24px;
+line-height: 1.33333;
+color: #101828;
+margin-bottom: 16px;
+}
+
+.list{
+    display: flex;
+    gap: 8px;
+}
+.item{
+    border-radius: 100px;
+padding: 12px 18px;
+height: 48px;
+font-weight: 500;
+font-size: 16px;
+line-height: 1.5;
+text-align: center;
+color: #101828;
+background: #f2f4f7;
+mix-blend-mode: multiply;
+}
+
+.vehicleDetails {
+  width: 100%;
+}
+
+.title {
+  margin: 0 0 24px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detailsItem {
+  display: flex;
+  justify-content: space-between;
+}
+.detailsItemText{
+    font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+text-align: center;
+color: #101828;
+}
