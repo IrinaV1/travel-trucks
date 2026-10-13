@@ -10,6 +10,8 @@ height: 304px;
     padding: 24px;
 }
 .infoCamper{
+    display: flex;
+    flex-direction: column;
     margin-bottom: 24px;
 }
 .title{
@@ -30,6 +32,8 @@ color: #101828;
      align-items: center;
       flex-wrap: nowrap;
   gap: 16px;
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
 .rating,
 .location {
@@ -46,8 +50,8 @@ color: #101828;
 }
 
 .icon {
-height: 24px;
-width: 24px;
+height: 16px;
+width: 16px;
 color: #101828;
 flex-shrink: 0;
 }

@@ -57,11 +57,15 @@ gap: 4px;
 }
 
 .starFilled {
+      width: 16px;
+  height: 16px;
 color: #ffc531;
 font-size: 16px;
 }
 
 .starEmpty {
-color: #d9d9d9;
-font-size: 16px;
+      width: 16px;
+  height: 16px;
+color:  #dadde1;
+ flex-shrink: 0;
 }

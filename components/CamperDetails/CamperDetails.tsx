@@ -14,10 +14,12 @@ export default function CamperDetails() {
             <span className={css.infoText}>(2 Reviews)</span>
           </div>
           <div className={css.location}>
-            <CiMap className={css.icon} size={24} />
+            <CiMap className={css.icon} />
             <span className={css.infoText}>Kyiv, Ukraine</span>
           </div>
         </div>
+         <p className={css.price}>€8000</p>
+      </div>
         <p className={css.description}>
           Embrace simplicity and freedom with the Mavericks panel truck, an
           ideal choice for solo travelers or couples seeking a compact and
@@ -26,7 +28,6 @@ export default function CamperDetails() {
           the perfect companion for those who value simplicity and
           functionality.
         </p>
-      </div>
     </div>
   );
 }
