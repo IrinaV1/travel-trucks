@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "modern-normalize/modern-normalize.css";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import TanstackProvider from "@/components/TanStackProvider/TanStackProvider";

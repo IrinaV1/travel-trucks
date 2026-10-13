@@ -6,6 +6,7 @@ import ReviewsCard from "@/components/ReviewsCard/ReviewsCard";
 import { notFound } from "next/navigation";
 import CamperDetails from "@/components/CamperDetails/CamperDetails";
 import VehicleDetails from "@/components/VehicleDetails/VehicleDetails";
+import BookForm from "@/components/BookForm/BookForm";
 
 
 
@@ -36,6 +37,7 @@ let camper;
     <ReviewsCard />
     <CamperDetails/>
     <VehicleDetails camper={camper}/>
+    <BookForm/>
     </main>
   );
 }

@@ -1,0 +1,12 @@
+.containerBookForm{
+    display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+    border: 1px solid #dadde1;
+border-radius: 16px;
+padding: 44px;
+width: 641px;
+height: 382px;
+background-color: transparent ;
+}
