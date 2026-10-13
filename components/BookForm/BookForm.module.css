@@ -1,12 +1,115 @@
 .containerBookForm{
+    box-sizing: border-box;
     display: flex;
-align-items: center;
-justify-content: center;
 flex-direction: column;
     border: 1px solid #dadde1;
 border-radius: 16px;
-padding: 44px;
+padding: 44px 57px;
 width: 641px;
 height: 382px;
+
 background-color: transparent ;
+}
+.form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.containerTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+.title{
+    font-weight: 600;
+        font-size: 20px;
+        line-height: 1.2;
+        color: #101828;
+}
+.subtitle{
+    font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #6c717b;
+}
+.fieldset{
+    display: flex;
+   flex-direction: column;
+  
+width: 100%;
+    border: none;
+    gap: 14px;
+}
+.inputWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.input{
+    box-sizing: border-box;
+    border-radius: 12px;
+        padding: 18px;
+        width: 100%;
+        height: 60px;
+    background-color: #f7f7f7;
+    font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #6c717b;
+        border: none;
+ 
+}
+
+.input::placeholder {
+    color: #6c717b;
+    opacity: 1;
+}
+.floatingLabelError {
+    position: absolute;
+    top: -10px;
+    left: 18px;
+    width: 54px;
+        height: 16px;
+        color: #6c717b;
+            font-size: 16px;
+    padding: 0 8px;
+    background-color: #ffdfdf;
+    font-weight: 400;
+        font-size: 12px;
+        line-height: 1.33;
+    color: #ec383b;
+    border-radius: 8px;
+    z-index: 1;
+}
+.errorIcon {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 24px;
+    height: 24px;
+    color: #ec383b;
+    pointer-events: none;
+}
+.error{
+    display: block;
+        margin: 0;
+        color: #e44848;
+}
+.btn{
+    margin-top: auto;
+    flex-shrink: 0;
+    border-radius: 200px;
+        padding: 16px 0;
+        width: 100%;
+        height: 56px;
+    background-color: #829b91;
+    font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+        color: #fff;
 }
