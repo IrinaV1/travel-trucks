@@ -25,10 +25,7 @@ export default function SwiperCamper({ images = [],
  }: SwiperCamperProps) {
  const [thumbsSwiper, setThumbsSwiper] =
   useState<SwiperType | null>(null);
-  console.log("Swiper images:", images);
-   if (images.length === 0) {
-    return null;
-  }
+  
     const sortedImages = [...images].sort((a, b) => a.order - b.order);
     return (
        <div className={css.gallery}>

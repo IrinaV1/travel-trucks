@@ -1,0 +1,65 @@
+.containerCamperDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 16px;
+padding: 24px;
+width: 650px;
+height: 304px;
+    background-color: #f7f7f7;
+    padding: 24px;
+}
+.infoCamper{
+    margin-bottom: 24px;
+}
+.title{
+    font-weight: 600;
+font-size: 24px;
+line-height: 1.33333;
+color: #101828;
+}
+
+.price{
+    font-weight: 600;
+font-size: 24px;
+line-height: 1.33;
+color: #101828;
+}
+.info{
+    display: flex;
+     align-items: center;
+      flex-wrap: nowrap;
+  gap: 16px;
+}
+.rating,
+.location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+   white-space: nowrap;
+}
+.starIcon {
+  width: 16px;
+  height: 16px;
+  color: #ffc531;
+  flex-shrink: 0;
+}
+
+.icon {
+height: 24px;
+width: 24px;
+color: #101828;
+flex-shrink: 0;
+}
+.infoText{
+    font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+color: #101828;
+}
+.description{
+    font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+color: #475467;
+}

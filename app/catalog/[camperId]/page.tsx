@@ -4,6 +4,7 @@ import { getCamperById } from "@/lib/api/serverApi";
 
 import ReviewsCard from "@/components/ReviewsCard/ReviewsCard";
 import { notFound } from "next/navigation";
+import CamperDetails from "@/components/CamperDetails/CamperDetails";
 
 
 
@@ -32,6 +33,7 @@ let camper;
 
       <SwiperCamper images={camper.gallery ?? []} />
     <ReviewsCard />
+    <CamperDetails/>
     </main>
   );
 }
