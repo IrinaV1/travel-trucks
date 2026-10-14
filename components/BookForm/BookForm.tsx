@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
 import css from "./BookForm.module.css";
@@ -22,20 +22,21 @@ export default function BookForm() {
   };
   return (
     <div className={css.containerBookForm}>
-  <div className={css.containerTitle}>
+      <div className={css.containerTitle}>
         <h3 className={css.title}>Book your campervan now</h3>
-        <p className={css.subtitle}>Stay connected! We are always ready to help you.</p>
+        <p className={css.subtitle}>
+          Stay connected! We are always ready to help you.
+        </p>
       </div>
-      
+
       <Formik
         initialValues={initialValues}
         validationSchema={bookFormSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, submitCount }) => (
+        {({ errors, submitCount, touched }) => (
           <Form className={css.form}>
             <fieldset className={css.fieldset}>
-          
               <div className={css.inputWrapper}>
                 <Field
                   type="text"
@@ -43,48 +44,76 @@ export default function BookForm() {
                   id={`${fieldId}-name`}
                   placeholder="Name*"
                   autoComplete="name"
-                  className={css.input}
-                    aria-invalid={Boolean(submitCount > 0 && errors.name)}
+                  className={`${css.input} ${
+                    (submitCount > 0 || touched.name) && errors.name
+                      ? css.inputError
+                      : ""
+                  }`}
+                  aria-invalid={Boolean(
+                    (submitCount > 0 || touched.name) && errors.name,
+                  )}
                 />
-                {submitCount > 0 && errors.name && (
-                   <>
-                  <label
-                    className={css.floatingLabelError}
-                    htmlFor={`${fieldId}-name`}
-                  >
-                    Name*
-                  </label>
-                      <MdErrorOutline
+                {(submitCount > 0 || touched.name) && errors.name && (
+                  <>
+                    <label
+                      className={css.floatingLabelError}
+                      htmlFor={`${fieldId}-name`}
+                    >
+                      Name*
+                    </label>
+                    <MdErrorOutline
                       className={css.errorIcon}
                       aria-hidden="true"
                     />
                   </>
                 )}
-                <ErrorMessage name="name" component="span" className={css.error} />
+                <ErrorMessage
+                  name="name"
+                  component="span"
+                  className={css.error}
+                />
               </div>
 
-           
               <div className={css.inputWrapper}>
-                <Field type="email" name="email" id={`${fieldId}-email`} placeholder="Email*"
-                  autoComplete="email" className={css.input}   aria-invalid={Boolean(submitCount > 0 && errors.email)}/>
-                {submitCount > 0 && errors.email && (
+                <Field
+                  type="email"
+                  name="email"
+                  id={`${fieldId}-email`}
+                  placeholder="Email*"
+                  autoComplete="email"
+  className={`${css.input} ${
+    (submitCount > 0 || touched.email) && errors.email
+      ? css.inputError
+      : ""
+  }`}
+  aria-invalid={Boolean(
+    (submitCount > 0 || touched.email) && errors.email
+  )}
+                />
+                {(submitCount > 0 || touched.email) && errors.email && (
                   <>
-                  <label
-                    className={css.floatingLabelError}
-                    htmlFor={`${fieldId}-email`}
-                  >
-                    Email*
-                  </label>
-                      <MdErrorOutline
+                    <label
+                      className={css.floatingLabelError}
+                      htmlFor={`${fieldId}-email`}
+                    >
+                      Email*
+                    </label>
+                    <MdErrorOutline
                       className={css.errorIcon}
                       aria-hidden="true"
                     />
                   </>
                 )}
-                <ErrorMessage name="email" component="span" className={css.error} />
+                <ErrorMessage
+                  name="email"
+                  component="span"
+                  className={css.error}
+                />
               </div>
             </fieldset>
-            <button type="submit" className={css.btn}>Send</button>
+            <button type="submit" className={css.btn}>
+              Send
+            </button>
           </Form>
         )}
       </Formik>

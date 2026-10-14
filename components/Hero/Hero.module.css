@@ -1,17 +1,17 @@
 .hero {
   position: relative;
-  isolation: isolate;
-  display: flex;
-    flex-direction: column;
-    justify-content: center;
+
   margin: 0 auto;
   width: 100%;
-    min-height: calc(100vh - 72px);
+  height: 761px;
+max-width: 1440px;
+    overflow: hidden;
 }
 .backgroundImage {
+  margin-top: 7px;
   object-fit: cover;
   object-position: center;
-  z-index: -2;
+  z-index: 0;
 }
 .overlay {
   position: absolute;
@@ -20,12 +20,8 @@
   z-index: -1;
 }
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
- justify-content: flex-start;
-
-  min-height: calc(100vh - 72px);
+  position: relative;
+    z-index: 2;
 
 }
 .containerTitle {

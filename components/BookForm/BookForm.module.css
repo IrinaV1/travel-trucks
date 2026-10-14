@@ -6,7 +6,8 @@ flex-direction: column;
 border-radius: 16px;
 padding: 44px 57px;
 width: 641px;
-height: 382px;
+min-height: 382px;
+height: auto;
 
 background-color: transparent ;
 }
@@ -42,6 +43,7 @@ background-color: transparent ;
 width: 100%;
     border: none;
     gap: 14px;
+    margin-bottom: 24px;
 }
 .inputWrapper {
     position: relative;
@@ -61,7 +63,14 @@ width: 100%;
         line-height: 1.5;
         color: #6c717b;
         border: none;
- 
+outline: none;
+}
+.inputError {
+border: 1px solid #e44848;
+    background-color: #ffdfdf;
+}
+.input:focus-visible {
+  outline: none;
 }
 
 .input::placeholder {
@@ -72,11 +81,12 @@ width: 100%;
     position: absolute;
     top: -10px;
     left: 18px;
-    width: 54px;
-        height: 16px;
+width: auto;
+    height: auto;
         color: #6c717b;
             font-size: 16px;
     padding: 0 8px;
+    
     background-color: #ffdfdf;
     font-weight: 400;
         font-size: 12px;
@@ -84,6 +94,7 @@ width: 100%;
     color: #ec383b;
     border-radius: 8px;
     z-index: 1;
+    white-space: nowrap;
 }
 .errorIcon {
     position: absolute;
@@ -97,7 +108,11 @@ width: 100%;
 .error{
     display: block;
         margin: 0;
-        color: #e44848;
+        font-weight: 400;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #e44848;
+
 }
 .btn{
     margin-top: auto;

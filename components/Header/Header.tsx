@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className={css.header}>
       <div className={`${css.headerContainer} container`}>
-        <Link className={`${css.logo} a`} href="/" aria-label="Home">
+        <Link className={css.logo} href="/" aria-label="Home">
           <Image
             src="/logo.svg"
             alt="TravelTrucks"

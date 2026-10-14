@@ -1,0 +1,32 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 136px;
+}
+.camperDetailsContainer{
+    display: flex;
+    gap: 24px;
+    margin-bottom: 88px;
+}
+.camperDetailsWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.title{
+    font-weight: 600;
+        font-size: 24px;
+        line-height: 1.33333;
+        color: #101828;
+        margin-bottom: 24px;
+}
+.feedbackSection{
+    display: flex;
+        gap: 48px;
+        margin-bottom: 64px;
+}
+.reviewsContainer{
+    display: flex;
+        flex-direction: column;
+        gap: 24px;
+}

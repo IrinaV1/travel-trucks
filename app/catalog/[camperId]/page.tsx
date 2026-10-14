@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import CamperDetails from "@/components/CamperDetails/CamperDetails";
 import VehicleDetails from "@/components/VehicleDetails/VehicleDetails";
 import BookForm from "@/components/BookForm/BookForm";
-
+import css from './CamperDetails.module.css'
 
 
 type Props = {  params: Promise<{ camperId: string }>;
@@ -27,17 +27,26 @@ let camper;
 
 
   return (
-    <main>
-      <h1>{camper.name}</h1>
-      <p>{camper.location}</p>
-      <p>€{camper.price}</p>
-      
+    <main className={css.main}>
 
-      <SwiperCamper images={camper.gallery ?? []} />
-    <ReviewsCard />
-    <CamperDetails/>
+      <div className="container">
+<div className={css.camperDetailsContainer}>
+          <SwiperCamper images={camper.gallery ?? []} />
+          <div className={css.camperDetailsWrapper}>
+            <CamperDetails />
     <VehicleDetails camper={camper}/>
-    <BookForm/>
+            </div>
+        </div>
+          <h2 className={css.title}>Reviews</h2>
+        <div className={css.feedbackSection}>
+        
+          <div className={css.reviewsContainer}>
+          <ReviewsCard />
+          <ReviewsCard />
+          </div>
+          <BookForm />
+          </div>
+        </div>
     </main>
   );
 }
