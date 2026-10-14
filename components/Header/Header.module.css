@@ -20,16 +20,36 @@ display: flex;
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  margin-right: 450px;
 }
 .navigation{
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .list{
        display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center; 
   gap: 32px;
+}
+
+.item a {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #101828;
+
+  transition: color 200ms ease;
+}
+
+.item a:hover,
+.item a:focus-visible {
+  color: #6d7b75;
+}
+
+.item a.active {
+  color: #829b91;
 }

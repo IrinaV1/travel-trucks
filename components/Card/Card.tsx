@@ -77,7 +77,7 @@ export default function Card({ camper }: CardProps) {
           </li>
         </ul>
         <Link
-          className={css.link}
+          className={`${css.link} a`}
           href={`/catalog/${camper.id}`}
           target="_blank"
           rel="noopener noreferrer"

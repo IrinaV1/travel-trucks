@@ -1,46 +1,79 @@
 .hero {
-  background-image:  linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/hero.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-   margin: 0 auto;
-  height: 768px;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+    min-height: calc(100vh - 72px);
+}
+.backgroundImage {
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+ justify-content: flex-start;
+
+  min-height: calc(100vh - 72px);
+
 }
 .containerTitle {
-display: flex;
-flex-direction: column;
-width: 571px;
-padding-top: 260px;
-margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+    align-items: flex-start;
+  width: 571px;
+  padding-top: 260px;
+  margin-bottom: 40px;
 }
 .title {
-font-weight: 600;
-font-size: 48px;
-line-height: 0.66;
-color: var(--text-primary);
-margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 0.66;
+  color: var(--text-primary);
+  margin-bottom: 16px;
   white-space: nowrap;
 }
-.subtitle{
-font-weight: 600;
-font-size: 24px;
-line-height: 1.33;
-color: var(--text-primary);
-
+.subtitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--text-primary);
 }
-.link{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 200px;
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
 
-width: 173px;
-height: 56px;
-background-color: #829b91;
-font-family: "Inter", sans-serif;
-font-weight: 500;
-font-size: 16px;
-line-height: 1.5;
-letter-spacing: -0.01em;
-color: #fff;
+  width: 173px;
+  height: 56px;
+  background-color: #829b91;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #fff;
+  transition:
+    background-color 200ms ease,
+    transform 150ms ease;
+}
+.link:hover,
+.link:focus-visible {
+  background-color: #6d7b75;
+}
+
+.link:active {
+  transform: scale(0.97);
 }

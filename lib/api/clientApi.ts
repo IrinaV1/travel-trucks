@@ -1,5 +1,5 @@
-import { Camper, CamperFilterOptions, CampersResponse } from "@/types/camper";
-import { API } from "./api";
+import { Camper, CamperFilterOptions} from "@/types/camper";
+import { API, CampersResponse } from "./api";
 
 
 export async function getAllCampers( page = 1, perPage = 4): Promise<CampersResponse>  {

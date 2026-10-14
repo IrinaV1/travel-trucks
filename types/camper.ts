@@ -48,14 +48,6 @@ export type CatalogCamper = {
   totalReviews: number;
 };
 
-export type CampersResponse = {
-  page: number;
-  perPage: number;
-  total: number;
-  totalPages: number;
-  campers: CatalogCamper[];
-};
-
 export type CamperFilters = {
   location: string;
   form: string;

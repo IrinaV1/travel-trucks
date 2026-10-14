@@ -1,6 +1,6 @@
 
-import { Camper, CampersResponse } from "@/types/camper";
-import { API } from "./api";
+import { Camper } from "@/types/camper";
+import { API, CampersResponse } from "./api";
 
 
 type CamperFilters = {
