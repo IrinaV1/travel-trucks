@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import css from './Hero.module.css'
-import Image from 'next/image'
+import Link from 'next/link';
+import css from './Hero.module.css';
+import Image from 'next/image';
 
 export default function Hero (){
   return(
@@ -10,6 +10,7 @@ export default function Hero (){
         alt="Camper in a scenic landscape"
         fill
         priority
+        fetchPriority="high"
         sizes="(max-width: 1440px) 100vw, 1440px"
         className={css.backgroundImage}
       />
