@@ -33,6 +33,7 @@ export type CatalogCamper = {
   width: string;
   height: string;
   tank: string;
+  description: string;
   consumption: string;
   transmission: TransmissionType;
   engine: EngineType;
@@ -56,7 +57,7 @@ export type Camper = {
   consumption: string;
   transmission: TransmissionType;
   engine: EngineType;
-  amenities: string;
+  amenities: AmenityType[];
   description: string;
   gallery: CamperImage[];
   totalReviews: number;

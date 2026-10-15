@@ -25,9 +25,25 @@ margin-bottom: 16px;
 
 .list{
     display: flex;
+    flex-wrap: nowrap;
     gap: 8px;
+width: 100%;
+      overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    cursor: grab;
+      user-select: none;
+}
+.list::-webkit-scrollbar {
+  display: none;
+}
+.list:active {
+  cursor: grabbing;
 }
 .item{
+  flex-shrink: 0;
+    white-space: nowrap;
     border-radius: 100px;
 padding: 12px 18px;
 height: 48px;

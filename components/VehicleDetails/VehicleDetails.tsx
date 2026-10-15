@@ -1,29 +1,43 @@
+'use client'
+
 import { Camper } from '@/types/camper';
-import css from './VehicleDetails.module.css'
+import css from './VehicleDetails.module.css';
+
 type Props = {
 camper: Camper;
 };
+
+const formatValue = (value: string) => {
+  return value
+    .split("_")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+
 export default function VehicleDetails({camper}: Props){
-    const details = [
-{ label: "Form", value: camper.form },
-{ label: "Length", value: camper.length },
-{ label: "Width", value: camper.width },
-{ label: "Height", value: camper.height },
-{ label: "Tank", value: camper.tank },
-{ label: "Consumption", value: camper.consumption },
-];
+    const features = camper.amenities;
+  
+ 
+  const details = [
+    { label: "Form", value: formatValue(camper.form) },
+    { label: "Length", value: camper.length },
+    { label: "Width", value: camper.width },
+    { label: "Height", value: camper.height },
+    { label: "Tank", value: camper.tank },
+    { label: "Consumption", value: camper.consumption },
+  ];
+
 
     return (
         <div className={css.containerVehicleDetails}>
         <div className={css.vehicleDetails}>
             <h2 className={css.title}>Vehicle details</h2>
-            <ul className={css.list}>
-                <li className={css.item}>Automatic</li>
-                <li className={css.item}>AC</li>
-                <li className={css.item}>Petrol</li>
-                <li className={css.item}>Kitchen</li>
-                <li className={css.item}>Radio</li>
-                <li className={css.item}>Alcove</li>
+                <ul className={css.list}>
+                     {features.map((feature) => (
+            <li className={css.item} key={feature}>
+              {formatValue(feature)}
+            </li>
+          ))}
             </ul>
         </div>
          <ul className={css.detailsList}>

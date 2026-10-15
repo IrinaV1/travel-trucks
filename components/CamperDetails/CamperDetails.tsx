@@ -2,31 +2,33 @@
 import { FaStar } from "react-icons/fa";
 import css from "./CamperDetails.module.css";
 import { CiMap } from "react-icons/ci";
-export default function CamperDetails() {
+import { Camper } from "@/types/camper";
+
+  type CamperDetailsProps = {
+  camper: Camper;
+};
+
+export default function CamperDetails({camper}: CamperDetailsProps) {
+
+
   return (
     <div className={css.containerCamperDetails}>
       <div className={css.infoCamper}>
-        <h1 className={css.title}>Mavericks</h1>
+        <h1 className={css.title}>{camper.name }</h1>
         <div className={css.info}>
           <div className={css.rating}>
             <FaStar className={css.starIcon} />
-            <span className={css.infoText}>4.4</span>
-            <span className={css.infoText}>(2 Reviews)</span>
+            <span className={css.infoText}>{camper.rating }</span>
+            <span className={css.infoText}>({camper.totalReviews} Reviews)</span>
           </div>
           <div className={css.location}>
             <CiMap className={css.icon} />
-            <span className={css.infoText}>Kyiv, Ukraine</span>
+            <span className={css.infoText}>{ camper.location}</span>
           </div>
         </div>
-         <p className={css.price}>€8000</p>
+        <p className={css.price}>€{camper.price }</p>
       </div>
-        <p className={css.description}>
-          Embrace simplicity and freedom with the Mavericks panel truck, an
-          ideal choice for solo travelers or couples seeking a compact and
-          efficient way to explore the open roads. This no-frills yet reliable
-          panel truck offers the essentials for a comfortable journey, making it
-          the perfect companion for those who value simplicity and
-          functionality.
+        <p className={css.description}>{camper.description}
         </p>
     </div>
   );

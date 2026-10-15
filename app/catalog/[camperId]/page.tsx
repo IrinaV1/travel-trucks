@@ -19,7 +19,7 @@ const { camperId } = await params;
 let camper;
   try {
  camper = await getCamperById(camperId);
- 
+
   } catch(error) {
       console.error("Failed to load camper:", error);
     notFound();
@@ -33,7 +33,7 @@ let camper;
 <div className={css.camperDetailsContainer}>
           <SwiperCamper images={camper.gallery ?? []} />
           <div className={css.camperDetailsWrapper}>
-            <CamperDetails />
+            <CamperDetails  camper={camper}/>
     <VehicleDetails camper={camper}/>
             </div>
         </div>

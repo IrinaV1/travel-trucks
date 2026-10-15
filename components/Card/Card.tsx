@@ -7,19 +7,14 @@ import { FaStar } from "react-icons/fa";
 import { MdDirectionsCar } from "react-icons/md";
 import { CiMap } from "react-icons/ci";
 import { CatalogCamper } from "@/types/camper";
-import { getCamperById } from "@/lib/api/clientApi";
-import { useQuery } from "@tanstack/react-query";
+
+
 
 type CardProps = {
   camper: CatalogCamper;
 };
 export default function Card({ camper }: CardProps) {
-  const { data: camperDetails } = useQuery({
-    queryKey: ["camper", camper.id],
-    queryFn: () => getCamperById(camper.id),
-  });
 
-  const description = camperDetails?.description ?? "";
   return (
     <div className={css.containerCard}>
       <div className={css.wrapperImage}>
@@ -53,7 +48,7 @@ export default function Card({ camper }: CardProps) {
           </div>
         </div>
         <p className={css.description}>
-         {description}
+         {camper.description}
         </p>
 
         <ul className={css.list}>
