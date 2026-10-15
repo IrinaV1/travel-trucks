@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import css from "./Card.module.css";
 import Link from "next/link";
@@ -5,12 +7,19 @@ import { FaStar } from "react-icons/fa";
 import { MdDirectionsCar } from "react-icons/md";
 import { CiMap } from "react-icons/ci";
 import { CatalogCamper } from "@/types/camper";
-
+import { getCamperById } from "@/lib/api/clientApi";
+import { useQuery } from "@tanstack/react-query";
 
 type CardProps = {
   camper: CatalogCamper;
 };
 export default function Card({ camper }: CardProps) {
+  const { data: camperDetails } = useQuery({
+    queryKey: ["camper", camper.id],
+    queryFn: () => getCamperById(camper.id),
+  });
+
+  const description = camperDetails?.description ?? "";
   return (
     <div className={css.containerCard}>
       <div className={css.wrapperImage}>
@@ -28,8 +37,8 @@ export default function Card({ camper }: CardProps) {
       <div className={css.wrapperCard}>
         <div className={css.wrapperTitle}>
           <div className={css.titlePrice}>
-            <h2 className={css.title}>Mavericks</h2>
-            <p className={css.price}>{camper.price}</p>
+            <h2 className={css.title}>{camper.name}</h2>
+            <p className={css.price}>€{camper.price}</p>
           </div>
           <div className={css.info}>
             <div className={css.rating}>
@@ -44,7 +53,7 @@ export default function Card({ camper }: CardProps) {
           </div>
         </div>
         <p className={css.description}>
-          Embrace simplicity and freedom with the Mavericks panel truck...
+         {description}
         </p>
 
         <ul className={css.list}>
@@ -57,7 +66,7 @@ export default function Card({ camper }: CardProps) {
               height={20}
               className={css.itemIcon}
             />
-            <span className={css.itemTitle}>Petrol</span>
+            <span className={css.itemTitle}>{camper.engine}</span>
           </li>
           <li className={css.item}>
             <Image
@@ -68,12 +77,12 @@ export default function Card({ camper }: CardProps) {
               height={20}
               className={css.itemIcon}
             />
-            <span className={css.itemTitle}>Automatic</span>
+            <span className={css.itemTitle}>{camper.transmission}</span>
           </li>
 
           <li className={css.item}>
             <MdDirectionsCar className={css.itemIcon} />
-           <span className={css.itemTitle}>Alcove</span> 
+            <span className={css.itemTitle}>{camper.form}</span> 
           </li>
         </ul>
         <Link

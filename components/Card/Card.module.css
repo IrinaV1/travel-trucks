@@ -127,6 +127,10 @@ transform 150ms ease;
 .link:hover,
 .link:focus-visible{
     background-color: #6d7b75;
+ 
+}
+.link:focus{
+outline: none;
 }
 .link:active {
     transform: scale(0.97);

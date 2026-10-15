@@ -8,24 +8,24 @@ export async function GET(request: NextRequest) {
       try {
       const searchParams = request.nextUrl.searchParams;
 
-    const search = searchParams.get('search') ?? '';
+        
     const page = Number(searchParams.get('page') ?? 1);
    const perPage = Number(searchParams.get('perPage') ?? 4);
-
+   
+        const location = searchParams.get('location');
    const form = searchParams.get('form');
     const transmission = searchParams.get('transmission');
     const engine = searchParams.get('engine');
-    const location = searchParams.get('location');
 
     const res = await api('/campers', {
       params: {
-        search:   search || undefined,
+
         page,
-        perPage: 4,
+        perPage,
+        location: location || undefined,
          form: form || undefined,
         transmission: transmission || undefined,
         engine: engine || undefined,
-        location: location || undefined,
       },
     });
 
@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
       logErrorResponse(error.response?.data);
       return NextResponse.json(
         { error: error.message, response: error.response?.data },
-        { status: error.status }
+        { status: error.response?.status }
       );
     }
     logErrorResponse({ message: (error as Error).message });

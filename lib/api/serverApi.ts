@@ -1,18 +1,12 @@
 
-import { Camper } from "@/types/camper";
+import { Camper, CamperFilters } from "@/types/camper";
 import { API, CampersResponse } from "./api";
 
 
-type CamperFilters = {
-  search?: string;
-  location?: string;
-  form?: string;
-  transmission?: string;
-  engine?: string;
-};
 export async function getAllCampers(
   page = 1,
   perPage = 4,
+    filters: CamperFilters = {}
 
 ): Promise<CampersResponse> {
 
@@ -21,7 +15,10 @@ export async function getAllCampers(
     
       page,
       perPage,
-   
+   location: filters.location || undefined,
+      form: filters.form || undefined,
+      transmission: filters.transmission || undefined,
+      engine: filters.engine || undefined,
     },
   });
 

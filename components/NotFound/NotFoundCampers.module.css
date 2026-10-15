@@ -65,6 +65,17 @@
 .submitBtn {
   color: #fff;
   background-color: #829b91;
+  transition:
+      background-color 200ms ease,
+      transform 150ms ease;
+}
+.submitBtn:hover,
+.submitBtn:focus-visible {
+  background-color: #6d7b75;
+}
+
+.submitBtn:active {
+  transform: scale(0.97);
 }
 .clearBtn {
   border: 1px solid #dadde1;
@@ -72,10 +83,22 @@
   background-color: #fff;
 
   gap: 4px;
+    transition:
+        border-color 200ms ease,
+        transform 150ms ease;
 }
 .clearIcon {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
   color: #000;
+}
+.clearBtn:hover,
+.clearBtn:focus-visible {
+  border: 1px solid #6d7b75;
+}
+
+.clearBtn:active {
+  transform: scale(0.97);
+  border-color: #6d7b75;
 }

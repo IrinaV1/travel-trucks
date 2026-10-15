@@ -1,4 +1,19 @@
 
+export type AmenityType = 
+  | "ac" 
+  | "bathroom" 
+  | "kitchen" 
+  | "tv" 
+  | "radio" 
+  | "refrigerator" 
+  | "microwave" 
+  | "gas" 
+  | "water";
+export type CamperForm = "alcove" | "panel_van" | "integrated" | "semi_integrated";
+export type TransmissionType = "automatic" | "manual";
+export type EngineType = "diesel" | "petrol" | "hybrid" | "electric";
+
+
 export type CamperImage = {
   id: string;
   camperId: string;
@@ -6,28 +21,6 @@ export type CamperImage = {
   original: string;
   order: number;
 };
-export type Camper = {
-  id: string;
-  name: string;
-  price: number;
-  rating: number;
-  totalReviews: number;
-  location: string;
-  description: string;
-  form: string;
-length: string;
-width: string;
-height: string;
-tank: string;
-consumption: string;
-transmission: string;
-engine: string;
-amenities: string;
-  gallery: CamperImage[];
-    createdAt?: string;
-  updatedAt?: string;
-};
-
 
 export type CatalogCamper = {
   id: string;
@@ -35,28 +28,53 @@ export type CatalogCamper = {
   price: number;
   rating: number;
   location: string;
-  form: string;
+  form: CamperForm;
   length: string;
   width: string;
   height: string;
   tank: string;
   consumption: string;
-  transmission: string;
-  engine: string;
-  amenities: string[];
+  transmission: TransmissionType;
+  engine: EngineType;
+  amenities: AmenityType[];
   coverImage: string;
   totalReviews: number;
 };
 
-export type CamperFilters = {
+
+export type Camper = {
+  id: string;
+  name: string;
+  price: number;
+  rating: number;
   location: string;
-  form: string;
-  engine: string;
-  transmission: string;
+  form: CamperForm;
+  length: string;
+  width: string;
+  height: string;
+  tank: string;
+  consumption: string;
+  transmission: TransmissionType;
+  engine: EngineType;
+  amenities: string;
+  description: string;
+  gallery: CamperImage[];
+  totalReviews: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+
+
+export type CamperFilters = {
+  location?: string;
+  form?: CamperForm;
+  transmission?: TransmissionType;
+  engine?: EngineType;
 };
 
 export type CamperFilterOptions = {
-  forms: string[];
-  transmissions: string[];
-  engines: string[];
+  forms: CamperForm[];
+  transmissions: TransmissionType[];
+  engines: EngineType[];
 };

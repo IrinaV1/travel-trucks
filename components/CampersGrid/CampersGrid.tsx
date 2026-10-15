@@ -7,28 +7,36 @@ import css from "./CampersGrid.module.css"
 import { getAllCampers } from "@/lib/api/clientApi";
 import { CampersResponse } from "@/lib/api/api";
 import LoadingModal from "../LoadingModal/LoadingModal";
+import { CamperFilters } from "@/types/camper";
 
 
 
 type Props = {
- campersData: CampersResponse;
+  campersData: CampersResponse;
+  filters: CamperFilters;
+    onClearFilters: () => void;
 };
-export default function CampersGrid({ campersData}: Props) {
+export default function CampersGrid({ campersData, filters, onClearFilters, }: Props) {
           const {
         data,
         fetchNextPage,
         hasNextPage,
         isFetchingNextPage,
-        isError,
+            isError,
+         isLoading,
+  isFetching,
       } = useInfiniteQuery({
-         queryKey: ['campers'],
-           queryFn: ({ pageParam }) => getAllCampers(pageParam, 4),
+         queryKey: ['campers', filters ],
+           queryFn: ({ pageParam }) => getAllCampers(pageParam, 4, filters),
           initialPageParam: 1,
                
-        initialData: {
-      pages: [campersData],
-      pageParams: [1],
-          },
+  initialData:
+    Object.keys(filters).length === 0
+      ? {
+          pages: [campersData],
+          pageParams: [1],
+        }
+      : undefined,
               
         getNextPageParam: (lastPage) =>
           lastPage.page < lastPage.totalPages
@@ -41,7 +49,9 @@ export default function CampersGrid({ campersData}: Props) {
         if (isError) {
             return <p>Не удалось загрузить кемперы.</p>;
         }
-        
+        if (isLoading || (isFetching && !isFetchingNextPage && !data)) {
+  return <LoadingModal />;
+}
         const campers = data?.pages.flatMap((page) => page.campers) ?? [];
       
     
@@ -56,7 +66,7 @@ export default function CampersGrid({ campersData}: Props) {
                   <Card key={camper.id} camper={camper} />
                 ))
               ) : (
-                <NotFoundCampers />
+                <NotFoundCampers onClearFilters={ onClearFilters }/>
               )}
         </div>
               {hasNextPage && (

@@ -30,6 +30,7 @@
     border-color 200ms ease,
     transform 150ms ease;
 }
+
 .btnLoad:hover,
 .btnLoad:focus-visible {
   border: 1px solid #6d7b75;

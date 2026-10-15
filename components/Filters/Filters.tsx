@@ -3,24 +3,38 @@ import { useId } from "react";
 import css from "./Filters.module.css";
 import { CiMap } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
+import { CamperFilters, CamperForm, EngineType, TransmissionType } from "@/types/camper";
 
-
-export default function Filters() {
+type Props = {
+  onSearch: (filters: CamperFilters) => void;
+    resetKey: number;
+  onClearFilters: () => void;
+};
+export default function Filters({onSearch, resetKey,
+  onClearFilters}: Props) {
   const fieldId = useId();
-  const handleSubmit = (formData: FormData) => {
-    const location = formData.get("location") as string;
+  
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-    const forms = formData.getAll("form") as string[];
-    const engines = formData.getAll("engine") as string[];
-    const transmissions = formData.getAll("transmission") as string[];
-    console.log("Location:", location);
-    console.log("Camper:", forms);
-    console.log("Engine:", engines);
-    console.log("Transmission:", transmissions);
+    const formData = new FormData(event.currentTarget);
+    
+    const location = (formData.get("location") as string).trim();
+    const form = formData.get("form") as CamperForm | null;
+    const engine = formData.get("engine") as EngineType | null;
+    const transmission = formData.get("transmission") as TransmissionType | null;
+    
+        onSearch({
+  ...(location && { location }),
+    form: form || undefined,
+    engine: engine || undefined,
+    transmission: transmission || undefined,
+  });
   };
+
   return (
     <div className={css.filtersContainer}>
-      <form action={handleSubmit}>
+      <form key={resetKey} onSubmit={handleSubmit} className={css.form}>
         <div className={css.formGroup}>
           <label className={css.labelLocation} htmlFor={`${fieldId}-location`}>Location</label>
            
@@ -32,7 +46,7 @@ export default function Filters() {
             type="text"
             name="location"
             className={css.inputLocation}
-            placeholder="Kyiv"
+            placeholder="City"
           />
           </div>
         </div>
@@ -97,7 +111,7 @@ export default function Filters() {
 </div>
 <div className={css.filterBtn}>
         <button className={`${css.submitBtn} ${css.btn}`} type="submit">Search</button>
-        <button className={`${css.clearBtn} ${css.btn}`} type="reset">
+        <button className={`${css.clearBtn} ${css.btn}`} type="reset" onClick={onClearFilters}>
              <IoClose className={css.clearIcon} size={24} />
             Clear filters</button>
       </div>

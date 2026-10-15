@@ -2,7 +2,14 @@ import Link from "next/link";
 import css from './NotFoundCampers.module.css'
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
-export default function NotFoundCampers() {
+
+type Props = {
+onClearFilters: () => void;
+};
+
+
+
+export default function NotFoundCampers({onClearFilters}: Props) {
   return (
     <div className={css.wrapper}>
       <Image
@@ -21,10 +28,10 @@ export default function NotFoundCampers() {
       </p>
       </div>
 <div className={css.filterBtn}>
-        <button className={`${css.clearBtn} ${css.btn}`} type="reset">
+        <button className={`${css.clearBtn} ${css.btn}`} type="button" onClick={onClearFilters}>
              <IoClose className={css.clearIcon} size={24} />
             Clear filters</button>
-        <Link className={`${css.submitBtn} ${css.btn} a`} href="/catalog">View all campers</Link>
+        <button type="button" className={`${css.submitBtn} ${css.btn} a`} onClick={() => window.location.reload()}>View all campers</button>
       </div>
     </div>
   );
