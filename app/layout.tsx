@@ -14,9 +14,35 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://travel-trucks-six-gold.vercel.app/"),
   title: "Campers of Your Dreams",
   description: "Find the perfect camper for your next adventure.",
+
+  
+  openGraph: {
+    title: "Campers of Your Dreams | TravelTrucks",
+    description: "Find the perfect camper for your next adventure.",
+    url: "https://travel-trucks-six-gold.vercel.app/",
+    siteName: "TravelTrucks",
+    images: [
+      {
+        url: "/og-image.jpg",
+          width: 1200,
+      height: 630,
+        alt: "TravelTrucks camper rental",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Campers of Your Dreams | TravelTrucks",
+    description: "Find the perfect camper for your next adventure.",
+    images: ["/og-image.jpg"],
+  },
 };
+
 
 export default function RootLayout({
   children,
