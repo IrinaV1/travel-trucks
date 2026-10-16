@@ -22,7 +22,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const camperImage = camper.gallery?.[0]?.original;
     const image = camperImage ?? "/og-image.jpg";
 
-    const isCamperImage = Boolean(camperImage);
 
     return {
       title,
@@ -36,8 +35,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         images: [
           {
             url: image,
-            width: isCamperImage ? 512 : 1200,
-            height: isCamperImage ? 512 : 630,
             alt: camper.name,
           },
         ],

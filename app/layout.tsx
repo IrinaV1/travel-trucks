@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://travel-trucks-six-gold.vercel.app/"),
+    metadataBase: new URL("https://travel-trucks-six-gold.vercel.app"),
   title: "Campers of Your Dreams",
   description: "Find the perfect camper for your next adventure.",
 
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Campers of Your Dreams | TravelTrucks",
     description: "Find the perfect camper for your next adventure.",
-    url: "https://travel-trucks-six-gold.vercel.app/",
+    url: "https://travel-trucks-six-gold.vercel.app",
     siteName: "TravelTrucks",
     images: [
       {

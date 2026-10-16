@@ -4,14 +4,13 @@ import Hero from "@/components/Hero/Hero";
 
 export const metadata: Metadata = {
   title: "Campers of Your Dreams | TravelTrucks",
-
   description:
     "Find the perfect camper for your next adventure. Explore our catalog and choose a camper that suits your travel needs.",
   openGraph: {
     title: "Campers of Your Dreams | TravelTrucks",
     description:
       "Find the perfect camper for your next adventure. Explore our catalog and choose a camper that suits your travel needs.",
-    url: "https://travel-trucks-six-gold.vercel.app/",
+    url: "https://travel-trucks-six-gold.vercel.app",
     siteName: "TravelTrucks",
     images: [
       {
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
     title: "Campers of Your Dreams | TravelTrucks",
     description:
       "Find the perfect camper for your next adventure. Explore our catalog and choose a camper that suits your travel needs.",
-    images: ["/hero.jpg"],
+    images: ["/og-image.jpg"],
   },
 };
 
