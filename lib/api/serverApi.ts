@@ -1,6 +1,7 @@
 
 import { Camper, CamperFilters } from "@/types/camper";
 import { API, CampersResponse } from "./api";
+import { CamperReview } from "@/types/review";
 
 
 export async function getAllCampers(
@@ -30,5 +31,15 @@ export async function getAllCampers(
 export async function getCamperById(camperId: string): Promise<Camper> {
 
   const response = await API.get<Camper>(`/campers/${camperId}`);
+  return response.data;
+}
+
+export async function getCamperReviews(
+  camperId: string,
+): Promise<CamperReview[]> {
+  const response = await API.get<CamperReview[]>(
+    `/campers/${camperId}/reviews`,
+  );
+
   return response.data;
 }

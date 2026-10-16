@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import css from "./Card.module.css";
+import css from "./CamperCard.module.css";
 import Link from "next/link";
 import { FaStar } from "react-icons/fa";
 import { MdDirectionsCar } from "react-icons/md";
@@ -13,7 +13,7 @@ import { CatalogCamper } from "@/types/camper";
 type CardProps = {
   camper: CatalogCamper;
 };
-export default function Card({ camper }: CardProps) {
+export default function CamperCard({ camper }: CardProps) {
 
   return (
     <div className={css.containerCard}>

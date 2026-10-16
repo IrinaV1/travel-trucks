@@ -1,71 +1,73 @@
-.containerReviews{
-    display: flex;
-    flex-direction: column;
+.containerReviews {
+  display: flex;
+  flex-direction: column;
 
-    border-radius: 16px;
-padding: 16px;
-width: 623px;
-height: 180px;
-    background-color: #f7f7f7;
+  border-radius: 16px;
+  padding: 16px;
+  width: 623px;
+  height: 180px;
+  background-color: #f7f7f7;
 }
-.wrapperReviews{
-    display: flex;
- justify-content: space-between;
+.wrapperReviews {
+  display: flex;
+  justify-content: space-between;
 
-align-items: center;
-
-gap: 16px;
-    width: 172px;
-height: 60px;
-margin-bottom: 16px;
+  align-items: center;
+flex-shrink: 0;
+  gap: 16px;
+  width: 172px;
+  height: 60px;
+  margin-bottom: 16px;
 }
-.wrapperUser{
-
-   
-  width: 96px;  
+.wrapperUser {
+  width: 96px;
 }
-.authorImage{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 60px;
-width: 60px;
-height: 60px;
-background-color: #fff;
-font-weight: 600;
-font-size: 24px;
-line-height: 1.33333;
-color: #829b91;
+.authorImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    flex-shrink: 0;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #829b91;
 }
-.userName{
-    font-weight: 500;
-font-size: 16px;
-line-height: 1.5;
-color: #101828;
-margin-bottom: 4px;
+.userName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #101828;
+  margin-bottom: 4px;
 }
-.description{
-    font-weight: 400;
-font-size: 16px;
-line-height: 1.5;
-color: #475467;
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+  height: 72px;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
 }
 .rating {
-display: flex;
-align-items: center;
-gap: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .starFilled {
-      width: 16px;
+  width: 16px;
   height: 16px;
-color: #ffc531;
-font-size: 16px;
+  color: #ffc531;
+  font-size: 16px;
 }
 
 .starEmpty {
-      width: 16px;
+  width: 16px;
   height: 16px;
-color:  #dadde1;
- flex-shrink: 0;
+  color: #dadde1;
+  flex-shrink: 0;
 }

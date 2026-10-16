@@ -1,13 +1,14 @@
 'use client'
 
 import { useInfiniteQuery } from "@tanstack/react-query";
-import Card from "../Card/Card";
+
 import NotFoundCampers from "../NotFound/NotFoundCampers";
 import css from "./CampersGrid.module.css"
 import { getAllCampers } from "@/lib/api/clientApi";
 import { CampersResponse } from "@/lib/api/api";
 import LoadingModal from "../LoadingModal/LoadingModal";
 import { CamperFilters } from "@/types/camper";
+import CamperCard from "../CamperCard/CamperCard";
 
 
 
@@ -63,7 +64,7 @@ export default function CampersGrid({ campersData, filters, onClearFilters, }: P
                 <div className={css.cardsList}>
            {campers.length > 0 ? (
                 campers.map((camper) => (
-                  <Card key={camper.id} camper={camper} />
+                  <CamperCard key={camper.id} camper={camper} />
                 ))
               ) : (
                 <NotFoundCampers onClearFilters={ onClearFilters }/>

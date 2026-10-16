@@ -1,13 +1,14 @@
-import { NextRequest, NextResponse } from "next/server";
-import { api } from "../../api";
+import { NextResponse } from "next/server";
+
 import { isAxiosError } from "axios";
 import { logErrorResponse } from "../../_utils/utils";
+import { api } from "../../api";
 
 type Props = {
   params: Promise<{ camperId: string }>;
 };
 
-export async function GET(request: NextRequest, { params }: Props) {
+export async function GET( request: Request,{ params }: Props) {
   try {
     const { camperId } = await params;
 
@@ -17,9 +18,10 @@ export async function GET(request: NextRequest, { params }: Props) {
   } catch (error) {
     if (isAxiosError(error)) {
       logErrorResponse(error.response?.data);
+      
       return NextResponse.json(
         { error: error.message, response: error.response?.data },
-        { status: error.status },
+        { status: error.response?.status ?? 502 },
       );
     }
     return NextResponse.json(

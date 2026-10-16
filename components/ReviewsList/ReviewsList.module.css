@@ -1,0 +1,15 @@
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-height: 384px;
+    width: 623px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+
+}
+.reviewsList>li {
+    flex-shrink: 0;
+}
