@@ -11,7 +11,7 @@ export default function Header() {
       <div className={`${css.headerContainer} container`}>
         <Link className={css.logo} href="/" aria-label="Home">
           <Image
-            src="/logo.svg"
+            src="/icons/logo.svg"
             alt="TravelTrucks"
             width={136}
             height={16}

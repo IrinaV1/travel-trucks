@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import css from './ReviewsList.module.css';
 import ReviewsCard from "../ReviewsCard/ReviewsCard";
 import { getCamperReviews } from "@/lib/api/clientApi";
+import Loader from "../Loader/Loader";
 
 type Props = {
    camperId: string;
@@ -16,7 +17,7 @@ export default function ReviewsList({ camperId }: Props) {
      if (isLoading) {
   return (
     <div className={css.reviewsList}>
-      <p>Loading reviews...</p>
+     <Loader/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import css from './NotFoundCampers.module.css'
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
