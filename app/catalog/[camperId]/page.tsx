@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const title = `${camper.name} | TravelTrucks`;
     const description = `Explore ${camper.name} and discover its features for your next adventure.`;
     const camperImage = camper.gallery?.[0]?.original;
-    const image = camperImage ?? "/og-image.jpg";
+    const image = camperImage ?? "/ogimage.jpg";
 
 
     return {

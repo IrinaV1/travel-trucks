@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "TravelTrucks",
     images: [
       {
-  url: "/og-image.jpg",
+  url: "/ogimage.jpg",
       width: 1200,
       height: 630,
         alt: "TravelTrucks — campers for your next adventure",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Campers of Your Dreams | TravelTrucks",
     description:
       "Find the perfect camper for your next adventure. Explore our catalog and choose a camper that suits your travel needs.",
-    images: ["/hero.jpg"],
+    images: ["/ogimage.jpg"],
   },
 
 };

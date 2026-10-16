@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Catalog",
   description:
         "Browse and filter camper rentals to find the right vehicle for your journey.",
+   
     openGraph: {
     title: "Camper Catalog | TravelTrucks",
     description:
@@ -17,13 +18,12 @@ export const metadata: Metadata = {
     siteName: "TravelTrucks",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/ogimage.jpg",
         width: 1200,
         height: 630,
         alt: "TravelTrucks camper rental catalog",
       },
     ],
-    locale: "en_US",
     type: "website",
   },
 
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Camper Catalog | TravelTrucks",
     description:
       "Browse and filter camper rentals to find the right vehicle for your journey.",
-    images: ["/og-image.jpg"],
+    images: ["/ogimage.jpg"],
   },
 };
 
