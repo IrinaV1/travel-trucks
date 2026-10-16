@@ -43,7 +43,7 @@ let camper;
           <div className={css.reviewsContainer}>
        <ReviewsList camperId={camper.id}/>
           </div>
-          <BookForm />
+          <BookForm camperId={camper.id}/>
           </div>
         </div>
     </main>

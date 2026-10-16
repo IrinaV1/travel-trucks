@@ -1,6 +1,7 @@
 import { Camper, CamperFilterOptions, CamperFilters } from "@/types/camper";
 import { API, CampersResponse } from "./api";
 import { CamperReview } from "@/types/review";
+import { BookingRequestPayload } from "@/types/booking";
 
 export async function getAllCampers(
   page = 1,
@@ -39,5 +40,17 @@ export async function getCamperReviews(
   const response = await API.get<CamperReview[]>(
     `/campers/${camperId}/reviews`,
   );
+  return response.data;
+}
+
+export async function createBookingRequest(
+  camperId: string,
+  values: BookingRequestPayload,
+) {
+  const response = await API.post(
+    `/campers/${camperId}/booking-requests`,
+    values,
+  );
+
   return response.data;
 }

@@ -5,20 +5,31 @@ import css from "./BookForm.module.css";
 import { useId } from "react";
 import { bookFormSchema, BookFormValues } from "./bookFormSchema";
 import { MdErrorOutline } from "react-icons/md";
+import { createBookingRequest } from "@/lib/api/clientApi";
+import toast from "react-hot-toast";
 
 const initialValues: BookFormValues = {
   name: "",
   email: "",
 };
-
-export default function BookForm() {
+type BookFormProps = {
+  camperId: string;
+};
+export default function BookForm({ camperId }: BookFormProps) {
   const fieldId = useId();
-  const handleSubmit = (
+  const handleSubmit = async (
     values: BookFormValues,
     actions: FormikHelpers<BookFormValues>,
   ) => {
-    console.log("Order data:", values);
-    actions.resetForm();
+    actions.setStatus(undefined);
+    try {
+      await createBookingRequest(camperId, values);
+
+      actions.resetForm();
+      toast.success("Your booking request has been sent successfully!");
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    }
   };
   return (
     <div className={css.containerBookForm}>
@@ -34,7 +45,7 @@ export default function BookForm() {
         validationSchema={bookFormSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, submitCount, touched }) => (
+        {({ errors, submitCount, touched, isSubmitting }) => (
           <Form className={css.form}>
             <fieldset className={css.fieldset}>
               <div className={css.inputWrapper}>
@@ -81,14 +92,14 @@ export default function BookForm() {
                   id={`${fieldId}-email`}
                   placeholder="Email*"
                   autoComplete="email"
-  className={`${css.input} ${
-    (submitCount > 0 || touched.email) && errors.email
-      ? css.inputError
-      : ""
-  }`}
-  aria-invalid={Boolean(
-    (submitCount > 0 || touched.email) && errors.email
-  )}
+                  className={`${css.input} ${
+                    (submitCount > 0 || touched.email) && errors.email
+                      ? css.inputError
+                      : ""
+                  }`}
+                  aria-invalid={Boolean(
+                    (submitCount > 0 || touched.email) && errors.email,
+                  )}
                 />
                 {(submitCount > 0 || touched.email) && errors.email && (
                   <>
@@ -111,7 +122,7 @@ export default function BookForm() {
                 />
               </div>
             </fieldset>
-            <button type="submit" className={css.btn}>
+            <button type="submit" className={css.btn} disabled={isSubmitting}>
               Send
             </button>
           </Form>
