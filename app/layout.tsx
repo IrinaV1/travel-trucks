@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Campers of Your Dreams | TravelTrucks",
     description: "Find the perfect camper for your next adventure.",
-    url: "https://travel-trucks-six-gold.vercel.app",
     siteName: "TravelTrucks",
     images: [
       {
