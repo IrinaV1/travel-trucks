@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
     const title = `${camper.name} | TravelTrucks`;
   const description = camper.description.slice(0, 160);
-  const imageUrl = "/ogimage.jpg";
+  const imageUrl = "/og-image.jpg";
 
  return {
  title,

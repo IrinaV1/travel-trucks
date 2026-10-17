@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "TravelTrucks",
     images: [
       {
-        url: "https://travel-trucks-six-gold.vercel.app/ogimage.jpg",
+        url: "https://travel-trucks-six-gold.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "TravelTrucks camper rental catalog",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Camper Catalog | TravelTrucks",
     description:
       "Browse and filter camper rentals to find the right vehicle for your journey.",
-    images: ["https://travel-trucks-six-gold.vercel.app/ogimage.jpg"],
+    images: ["https://travel-trucks-six-gold.vercel.app/og-image.jpg"],
   },
 };
 
