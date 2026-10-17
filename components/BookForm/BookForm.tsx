@@ -55,7 +55,7 @@ export default function BookForm({ camperId }: BookFormProps) {
                   id={`${fieldId}-name`}
                   placeholder="Name*"
                   autoComplete="name"
-                  className={`${css.input} ${
+                  className={`${css.input} ${css.nameInput} ${
                     (submitCount > 0 || touched.name) && errors.name
                       ? css.inputError
                       : ""
@@ -74,6 +74,7 @@ export default function BookForm({ camperId }: BookFormProps) {
                     </label>
                     <MdErrorOutline
                       className={css.errorIcon}
+                      size={24}
                       aria-hidden="true"
                     />
                   </>
@@ -92,7 +93,7 @@ export default function BookForm({ camperId }: BookFormProps) {
                   id={`${fieldId}-email`}
                   placeholder="Email*"
                   autoComplete="email"
-                  className={`${css.input} ${
+                  className={`${css.input} ${css.emailInput} ${
                     (submitCount > 0 || touched.email) && errors.email
                       ? css.inputError
                       : ""
@@ -111,6 +112,7 @@ export default function BookForm({ camperId }: BookFormProps) {
                     </label>
                     <MdErrorOutline
                       className={css.errorIcon}
+                      size={24}
                       aria-hidden="true"
                     />
                   </>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "modern-normalize/modern-normalize.css";
 import "./globals.css";
 import Header from "@/components/Header/Header";
@@ -12,7 +12,12 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
-
+const manrope = Manrope({
+  variable: "--font-manrope",
+  weight: ["500"],
+  subsets: ["latin"],
+  display: "swap",
+});
 export const metadata: Metadata = {
     metadataBase: new URL("https://travel-trucks-six-gold.vercel.app"),
   title: "Campers of Your Dreams",
@@ -50,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.variable}>
+      <body className={`${inter.variable} ${manrope.variable}`}>
         <TanstackProvider>
           <Toaster position="top-right" />
           <Header />
