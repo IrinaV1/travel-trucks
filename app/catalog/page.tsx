@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 
+import { QueryClient, dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { getAllCampers } from "@/lib/api/serverApi";
 import css from './Catalog.module.css';
 import CatalogClient from "./CatalogClient";
+import { CampersResponse } from "@/lib/api/api";
+import { CamperFilters } from "@/types/camper";
 
 
 export const metadata: Metadata = {
@@ -38,12 +41,24 @@ export const metadata: Metadata = {
 };
 
 export default async function CatalogPage() {
-    
-const campersData = await getAllCampers(1, 4);
+  const queryClient = new QueryClient();
+  const filters: CamperFilters = {};
+  
+  await queryClient.prefetchInfiniteQuery({
+    queryKey: ["campers", filters],
+    queryFn: ({ pageParam }) => getAllCampers(pageParam, 4, filters),
+          initialPageParam: 1,
+    getNextPageParam: (lastPage: CampersResponse) =>
+      lastPage.page < lastPage.totalPages
+        ? lastPage.page + 1
+        : undefined,
+  })
     
     return (
-        <main className={`${css.main} container`}>
-           <CatalogClient campersData={campersData} />
+      <main className={`${css.main} container`}>
+         <HydrationBoundary state={dehydrate(queryClient)}>
+          <CatalogClient />
+          </HydrationBoundary>
         </main>
     );
 }

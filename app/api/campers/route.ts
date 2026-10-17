@@ -19,7 +19,6 @@ export async function GET(request: NextRequest) {
 
     const res = await api('/campers', {
       params: {
-
         page,
         perPage,
         location: location || undefined,
@@ -34,11 +33,16 @@ export async function GET(request: NextRequest) {
     if (isAxiosError(error)) {
       logErrorResponse(error.response?.data);
       return NextResponse.json(
-        { error: error.message, response: error.response?.data },
-        { status: error.response?.status }
+        {
+          error: error.message,
+          response: error.response?.data ?? null,
+        },
+        { status: error.response?.status ?? 502 }
       );
     }
-    logErrorResponse({ message: (error as Error).message });
+        logErrorResponse({
+          message: (error as Error).message
+        });
     return NextResponse.json(
       { error: 'Internal Server Error' },
       { status: 500 }

@@ -5,22 +5,16 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import NotFoundCampers from "../NotFound/NotFoundCampers";
 import css from "./CampersGrid.module.css";
 import { getAllCampers } from "@/lib/api/clientApi";
-import { CampersResponse } from "@/lib/api/api";
 import LoadingModal from "../LoadingModal/LoadingModal";
 import { CamperFilters } from "@/types/camper";
 import CamperCard from "../CamperCard/CamperCard";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 type Props = {
-  campersData: CampersResponse;
   filters: CamperFilters;
   onClearFilters: () => void;
 };
-export default function CampersGrid({
-  campersData,
-  filters,
-  onClearFilters,
-}: Props) {
+export default function CampersGrid({ filters, onClearFilters }: Props) {
   const {
     data,
     fetchNextPage,
@@ -35,16 +29,9 @@ export default function CampersGrid({
     queryFn: ({ pageParam }) => getAllCampers(pageParam, 4, filters),
     initialPageParam: 1,
 
-    initialData:
-      Object.keys(filters).length === 0
-        ? {
-            pages: [campersData],
-            pageParams: [1],
-          }
-        : undefined,
-
     getNextPageParam: (lastPage) =>
       lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined,
+    refetchOnMount: false,
   });
 
   if (isError) {
@@ -58,7 +45,12 @@ export default function CampersGrid({
     return <LoadingModal />;
   }
   const campers = data?.pages.flatMap((page) => page.campers) ?? [];
-
+console.log("Pages:", data?.pages);
+console.log("Campers:", campers);
+console.log(
+  "Invalid items:",
+  campers.filter((camper) => camper === undefined || camper === null)
+);
   return (
     <>
       {isFetchingNextPage && <LoadingModal />}

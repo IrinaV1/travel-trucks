@@ -13,7 +13,7 @@
   justify-content: space-between;
 
   align-items: center;
-flex-shrink: 0;
+  flex-shrink: 0;
   gap: 16px;
   width: 172px;
   height: 60px;
@@ -26,7 +26,7 @@ flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-    flex-shrink: 0;
+  flex-shrink: 0;
   border-radius: 60px;
   width: 60px;
   height: 60px;
@@ -51,6 +51,15 @@ flex-shrink: 0;
   height: 72px;
   overflow-y: auto;
   overflow-wrap: anywhere;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+.description::-webkit-scrollbar {
+  display: none;
+}
+.description:active {
+  cursor: grabbing;
 }
 .rating {
   display: flex;
