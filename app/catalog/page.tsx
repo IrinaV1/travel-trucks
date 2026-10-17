@@ -6,6 +6,7 @@ import CatalogClient from "./CatalogClient";
 
 
 export const metadata: Metadata = {
+  
   title: "Catalog",
   description:
         "Browse and filter camper rentals to find the right vehicle for your journey.",

@@ -14,19 +14,15 @@ type Props = { params: Promise<{ camperId: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { camperId } = await params;
-  try {
-    const camper = await getCamperById(camperId);
-
+  const camper = await getCamperById(camperId);
+  
     const title = `${camper.name} | TravelTrucks`;
-    const description = `Explore ${camper.name} and discover its features for your next adventure.`;
-    const camperImage = camper.gallery?.[0]?.original;
-    const image = camperImage ?? "/ogimage.jpg";
+  const description = camper.description.slice(0, 160);
+  const imageUrl = "/ogimage.jpg";
 
-
-    return {
-      title,
-      description,
-
+ return {
+ title,
+    description,
       openGraph: {
         title,
         description,
@@ -34,11 +30,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         siteName: "TravelTrucks",
         images: [
           {
-            url: image,
+            url: imageUrl,
+             width: 1200,
+          height: 630,
             alt: camper.name,
           },
         ],
-        locale: "en_US",
         type: "website",
       },
 
@@ -46,16 +43,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         card: "summary_large_image",
         title,
         description,
-        images: [image],
+        images: [imageUrl],
       },
-    };
-  } catch {
-    return {
-      title: "Camper Details | TravelTrucks",
-      description: "Explore camper rentals with TravelTrucks.",
-    };
+    }
   }
-}
+
 
 export default async function CamperDetailsPage({ params }: Props) {
   const { camperId } = await params;
