@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import SwiperCamper from "@/components/SwiperCamper/SwiperCamper";
 
-import { getCamperById} from "@/lib/api/serverApi";
+import { getCamperById } from "@/lib/api/serverApi";
 import { notFound } from "next/navigation";
 import CamperDetails from "@/components/CamperDetails/CamperDetails";
 import VehicleDetails from "@/components/VehicleDetails/VehicleDetails";
@@ -67,25 +67,26 @@ export default async function CamperDetailsPage({ params }: Props) {
     throw error;
   }
 
-
   return (
-      <main className={css.main}>
-        <div className="container">
-          <div className={css.camperDetailsContainer}>
-            <SwiperCamper images={camper.gallery ?? []} />
-            <div className={css.camperDetailsWrapper}>
-              <CamperDetails camper={camper} />
-              <VehicleDetails camper={camper} />
-            </div>
+    <main className={css.main}>
+      <div className="container">
+        <section className={css.camperDetailsContainer}>
+          <SwiperCamper images={camper.gallery ?? []} />
+          <div className={css.camperDetailsWrapper}>
+            <CamperDetails camper={camper} />
+            <VehicleDetails camper={camper} />
           </div>
+        </section>
+        <section className={css.feedbackSection}>
           <h2 className={css.title}>Reviews</h2>
-          <div className={css.feedbackSection}>
+          <div className={css.feedbackContainer}>
             <div className={css.reviewsContainer}>
               <ReviewsList camperId={camper.id} />
             </div>
             <BookForm camperId={camper.id} />
           </div>
-        </div>
-      </main>
+        </section>
+      </div>
+    </main>
   );
 }

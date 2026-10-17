@@ -18,7 +18,10 @@ type Props = {
 export default function Filters({ onSearch, resetKey, onClearFilters }: Props) {
   const fieldId = useId();
 
-  const handleSubmit = (formData: FormData) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    
+    const formData = new FormData(event.currentTarget);
 
     const location = (formData.get("location") as string).trim();
     const form = formData.get("form") as CamperForm | null;
@@ -38,7 +41,7 @@ export default function Filters({ onSearch, resetKey, onClearFilters }: Props) {
 
   return (
     <div className={css.filtersContainer}>
-      <form key={resetKey} action={handleSubmit} className={css.form}>
+      <form key={resetKey} onSubmit={handleSubmit} className={css.form}>
         <div className={css.formGroup}>
           <label className={css.labelLocation} htmlFor={`${fieldId}-location`}>
             Location
@@ -121,7 +124,7 @@ export default function Filters({ onSearch, resetKey, onClearFilters }: Props) {
           </button>
           <button
             className={`${css.clearBtn} ${css.btn}`}
-            type="reset"
+            type="button"
             onClick={onClearFilters}
           >
             <IoClose className={css.clearIcon} size={24} />

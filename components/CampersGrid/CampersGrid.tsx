@@ -45,12 +45,7 @@ export default function CampersGrid({ filters, onClearFilters }: Props) {
     return <LoadingModal />;
   }
   const campers = data?.pages.flatMap((page) => page.campers) ?? [];
-console.log("Pages:", data?.pages);
-console.log("Campers:", campers);
-console.log(
-  "Invalid items:",
-  campers.filter((camper) => camper === undefined || camper === null)
-);
+
   return (
     <>
       {isFetchingNextPage && <LoadingModal />}

@@ -55,10 +55,7 @@ export default function CamperCard({ camper }: CardProps) {
             {camper.engine === "electric" ? (
               <BsEvStation className={css.itemIcon} size={20} />
             ) : (
-              <BsFuelPump
-                className={css.itemIcon}
-                size={20}
-              />
+              <BsFuelPump className={css.itemIcon} size={20} />
             )}
             <span className={css.itemTitle}>{camper.engine}</span>
           </li>
