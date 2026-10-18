@@ -43,7 +43,6 @@ export default function SwiperCamper({ images = [] }: SwiperCamperProps) {
                 width={638}
                 height={505}
                 priority={index === 0}
-                loading={index === 0 ? "eager" : "lazy"}
                 className={css.image}
               />
             </div>
