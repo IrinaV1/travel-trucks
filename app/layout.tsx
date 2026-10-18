@@ -19,11 +19,11 @@ const manrope = Manrope({
   display: "swap",
 });
 export const metadata: Metadata = {
-    metadataBase: new URL("https://travel-trucks-six-gold.vercel.app"),
+  metadataBase: new URL("https://travel-trucks-six-gold.vercel.app"),
   title: "Campers of Your Dreams",
   description: "Find the perfect camper for your next adventure.",
 
-  
+
   openGraph: {
     title: "Campers of Your Dreams | TravelTrucks",
     description: "Find the perfect camper for your next adventure.",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.jpg",
-          width: 1200,
-      height: 630,
+        width: 1200,
+        height: 630,
         alt: "TravelTrucks camper rental",
       },
     ],

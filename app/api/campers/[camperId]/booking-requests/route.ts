@@ -6,21 +6,19 @@ type Props = {
 };
 
 export async function POST(request: Request, { params }: Props) {
+  try {
+    const { camperId } = await params;
+    const body = await request.json();
 
-    try {
-        const { camperId } = await params;
-        const body = await request.json();
-        
-          const response = await api.post(
+    const response = await api.post(
       `/campers/${camperId}/booking-requests`,
       body,
-        );
+    );
 
-           return NextResponse.json(response.data, {
+    return NextResponse.json(response.data, {
       status: response.status,
-           });
-        
-    }catch (error) {
+    });
+  } catch (error) {
     console.error("Booking request failed:", error);
 
     return NextResponse.json(

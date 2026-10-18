@@ -7,7 +7,7 @@ export default function Loader() {
       <Oval
         height={40}
         width={40}
-      color="#6D7B75"
+        color="#6D7B75"
         secondaryColor="#F7F7F7"
         ariaLabel="Loading"
       />

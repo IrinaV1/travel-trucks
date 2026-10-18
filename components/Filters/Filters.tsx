@@ -20,7 +20,7 @@ export default function Filters({ onSearch, resetKey, onClearFilters }: Props) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    
+
     const formData = new FormData(event.currentTarget);
 
     const location = (formData.get("location") as string).trim();

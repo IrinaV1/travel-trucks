@@ -1,22 +1,17 @@
-
 import { Camper, CamperFilters } from "@/types/camper";
 import { API, CampersResponse } from "./api";
 import { CamperReview } from "@/types/review";
 
-
 export async function getAllCampers(
   page = 1,
   perPage = 4,
-    filters: CamperFilters = {}
-
+  filters: CamperFilters = {},
 ): Promise<CampersResponse> {
-
-  const response = await API.get<CampersResponse>('/campers', {
+  const response = await API.get<CampersResponse>("/campers", {
     params: {
-    
       page,
       perPage,
-   location: filters.location || undefined,
+      location: filters.location || undefined,
       form: filters.form || undefined,
       transmission: filters.transmission || undefined,
       engine: filters.engine || undefined,
@@ -26,10 +21,7 @@ export async function getAllCampers(
   return response.data;
 }
 
-
-
 export async function getCamperById(camperId: string): Promise<Camper> {
-
   const response = await API.get<Camper>(`/campers/${camperId}`);
   return response.data;
 }

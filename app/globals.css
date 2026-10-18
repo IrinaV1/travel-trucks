@@ -73,12 +73,15 @@ button {
 
 @media screen and (max-width: 1439px) {
   .container {
+    max-width: 768px;
     padding: 0 32px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .container {
+    min-width: 320px;
+    max-width: 375px;
     padding: 0 16px;
   }
 }

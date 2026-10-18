@@ -7,15 +7,14 @@ type Props = {
   params: Promise<{ camperId: string }>;
 };
 
-export async function GET( request: Request,{params}: Props) { 
-    try {
-        const { camperId } = await params;
+export async function GET(request: Request, { params }: Props) {
+  try {
+    const { camperId } = await params;
 
-        const res = await api(`/campers/${camperId}/reviews`);
+    const res = await api(`/campers/${camperId}/reviews`);
 
     return NextResponse.json(res.data, { status: res.status });
-        
-}catch (error) {
+  } catch (error) {
     if (isAxiosError(error)) {
       logErrorResponse(error.response?.data);
 

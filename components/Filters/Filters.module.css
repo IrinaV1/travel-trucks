@@ -105,14 +105,14 @@
 
   width: 24px;
   height: 24px;
-margin: 0;
+  margin: 0;
   padding: 0;
-  
+
   color: #101828;
   border: 1px solid #475467;
   border-radius: 50%;
 
-display: grid;
+  display: grid;
   place-items: center;
   cursor: pointer;
 }
@@ -123,7 +123,7 @@ display: grid;
   border-radius: 50%;
   background-color: #475467;
   transform: scale(0);
-    transition: transform 200ms ease;
+  transition: transform 200ms ease;
 }
 
 .filterOption input:checked::after {

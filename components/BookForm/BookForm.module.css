@@ -61,7 +61,7 @@
   background-color: #f7f7f7;
   font-size: 16px;
   color: #101828;
-border: 1px solid transparent;
+  border: 1px solid transparent;
   outline: none;
 }
 .nameInput {
@@ -90,7 +90,7 @@ border: 1px solid transparent;
   color: #6c717b;
 }
 .floatingLabelError {
-    font-family: var(--font-manrope), sans-serif;
+  font-family: var(--font-manrope), sans-serif;
   position: absolute;
   top: -12px;
   left: 18px;
@@ -114,7 +114,7 @@ border: 1px solid transparent;
   right: 18px;
   width: 24px;
   height: 24px;
-  color: #EC383B;
+  color: #ec383b;
   pointer-events: none;
 }
 .error {

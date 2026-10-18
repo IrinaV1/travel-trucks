@@ -4,8 +4,8 @@
   margin: 0 auto;
   width: 100%;
   height: 761px;
-max-width: 1440px;
-    overflow: hidden;
+  max-width: 1440px;
+  overflow: hidden;
 }
 .backgroundImage {
   margin-top: 7px;
@@ -21,13 +21,12 @@ max-width: 1440px;
 }
 .content {
   position: relative;
-    z-index: 2;
-
+  z-index: 2;
 }
 .containerTitle {
   display: flex;
   flex-direction: column;
-    align-items: flex-start;
+  align-items: flex-start;
   width: 571px;
   padding-top: 260px;
   margin-bottom: 40px;

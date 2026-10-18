@@ -8,7 +8,7 @@ type Props = {
   params: Promise<{ camperId: string }>;
 };
 
-export async function GET( request: Request,{ params }: Props) {
+export async function GET(request: Request, { params }: Props) {
   try {
     const { camperId } = await params;
 
@@ -18,7 +18,7 @@ export async function GET( request: Request,{ params }: Props) {
   } catch (error) {
     if (isAxiosError(error)) {
       logErrorResponse(error.response?.data);
-      
+
       return NextResponse.json(
         { error: error.message, response: error.response?.data },
         { status: error.response?.status ?? 502 },

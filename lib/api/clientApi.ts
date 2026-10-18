@@ -21,9 +21,7 @@ export async function getAllCampers(
 
   return response.data;
 }
-export async function getCamperById(
-  camperId: string
-): Promise<Camper> {
+export async function getCamperById(camperId: string): Promise<Camper> {
   const response = await API.get<Camper>(`/campers/${camperId}`);
 
   return response.data;
