@@ -8,10 +8,14 @@ export const bookFormSchema: Yup.ObjectSchema<BookFormValues> = Yup.object({
   name: Yup.string()
     .trim()
     .required("Please enter your name.")
-    .min(5, "Please enter your name.")
+    .min(4, "Please enter your name.")
     .matches(/^[\p{L}]+(?:[ '-][\p{L}]+)*$/u, "Please enter your name.")
-    .test("full-name", "Please enter your name.", (value) => {
-      return Boolean(value && value.trim().split(/\s+/).length >= 2);
+    .test("full-name", "Please enter your full name.", (value) => {
+      if (!value) return true;
+      const nameParts = value.trim().split(/\s+/);
+      return (
+        nameParts.length >= 2 && nameParts.every((part) => part.length >= 2)
+      );
     }),
   email: Yup.string()
     .trim()
