@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import SwiperCamper from "@/components/SwiperCamper/SwiperCamper";
 
-import { getCamperById } from "@/lib/api/serverApi";
+import { getCamperById, getCamperReviews } from "@/lib/api/serverApi";
 import { notFound } from "next/navigation";
 import CamperDetails from "@/components/CamperDetails/CamperDetails";
 import VehicleDetails from "@/components/VehicleDetails/VehicleDetails";
@@ -11,6 +11,7 @@ import css from "./CamperDetails.module.css";
 import ReviewsList from "@/components/ReviewsList/ReviewsList";
 import { Camper } from "@/types/camper";
 import { isAxiosError } from "axios";
+import { CamperReview } from "@/types/review";
 
 type Props = { params: Promise<{ camperId: string }> };
 
@@ -67,6 +68,10 @@ export default async function CamperDetailsPage({ params }: Props) {
     throw error;
   }
 
+  let reviews: CamperReview[] = [];
+  try {
+    reviews = await getCamperReviews(camper.id);
+  } catch {}
   return (
     <main className={css.main}>
       <div className="container">
@@ -81,7 +86,7 @@ export default async function CamperDetailsPage({ params }: Props) {
           <h2 className={css.title}>Reviews</h2>
           <div className={css.feedbackContainer}>
             <div className={css.reviewsContainer}>
-              <ReviewsList camperId={camper.id} />
+              <ReviewsList camperId={camper.id} initialReviews={reviews} />
             </div>
             <BookForm camperId={camper.id} />
           </div>

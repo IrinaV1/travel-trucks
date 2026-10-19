@@ -5,14 +5,17 @@ import css from "./ReviewsList.module.css";
 import ReviewsCard from "../ReviewsCard/ReviewsCard";
 import { getCamperReviews } from "@/lib/api/clientApi";
 import Loader from "../Loader/Loader";
+import { CamperReview } from "@/types/review";
 
 type Props = {
   camperId: string;
+  initialReviews: CamperReview[];
 };
-export default function ReviewsList({ camperId }: Props) {
+export default function ReviewsList({ camperId, initialReviews }: Props) {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["camperReviews", camperId],
     queryFn: () => getCamperReviews(camperId),
+    initialData: initialReviews,
   });
   if (isLoading) {
     return (
@@ -23,11 +26,11 @@ export default function ReviewsList({ camperId }: Props) {
   }
 
   if (isError) {
-    return <p>Failed to load reviews.</p>;
+    return <div className={css.reviewsList}> <p>Failed to load reviews.</p></div>;
   }
 
   if (!data || data.length === 0) {
-    return <p>No reviews yet.</p>;
+    return <div className={css.reviewsList}><p>No reviews yet.</p></div>;
   }
   return (
     <ul className={css.reviewsList}>

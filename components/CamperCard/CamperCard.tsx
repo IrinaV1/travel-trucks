@@ -9,10 +9,12 @@ import { CiMap } from "react-icons/ci";
 import { CatalogCamper } from "@/types/camper";
 import { BsEvStation, BsFuelPump } from "react-icons/bs";
 import { TbAutomaticGearbox, TbManualGearbox } from "react-icons/tb";
+import { formatValue } from "@/lib/utils/utils";
 
 type CardProps = {
   camper: CatalogCamper;
 };
+
 export default function CamperCard({ camper }: CardProps) {
   return (
     <div className={css.containerCard}>
@@ -57,7 +59,7 @@ export default function CamperCard({ camper }: CardProps) {
             ) : (
               <BsFuelPump className={css.itemIcon} size={20} />
             )}
-            <span className={css.itemTitle}>{camper.engine}</span>
+            <span className={css.itemTitle}>{formatValue(camper.engine)}</span>
           </li>
           <li className={css.item}>
             {camper.transmission === "automatic" ? (
@@ -65,12 +67,12 @@ export default function CamperCard({ camper }: CardProps) {
             ) : (
               <TbManualGearbox className={css.itemIcon} size={20} />
             )}
-            <span className={css.itemTitle}>{camper.transmission}</span>
+            <span className={css.itemTitle}>{formatValue(camper.transmission)}</span>
           </li>
 
           <li className={css.item}>
             <MdDirectionsCar className={css.itemIcon} size={20} />
-            <span className={css.itemTitle}>{camper.form}</span>
+            <span className={css.itemTitle}>{formatValue(camper.form)}</span>
           </li>
         </ul>
         <Link

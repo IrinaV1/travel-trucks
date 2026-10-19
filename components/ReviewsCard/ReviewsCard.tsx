@@ -40,7 +40,7 @@ export default function ReviewsCard({ review }: ReviewsCardProps) {
       </div>
 
       <div className={css.wrapperDescription}>
-        <p className={css.description}>{review.comment} </p>
+        <p className={css.description}>{review.comment}</p>
       </div>
     </div>
   );

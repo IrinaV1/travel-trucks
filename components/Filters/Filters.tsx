@@ -9,15 +9,29 @@ import {
   EngineType,
   TransmissionType,
 } from "@/types/camper";
+import { getCamperFilterOptions } from "@/lib/api/clientApi";
+import { useQuery } from "@tanstack/react-query";
+import { formatValue } from "@/lib/utils/utils";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import Loader from "../Loader/Loader";
 
 type Props = {
   onSearch: (filters: CamperFilters) => void;
   resetKey: number;
   onClearFilters: () => void;
 };
+
 export default function Filters({ onSearch, resetKey, onClearFilters }: Props) {
   const fieldId = useId();
-
+  const {
+    data: filterOptions,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
+    queryKey: ["camperFilterOptions"],
+    queryFn: getCamperFilterOptions,
+  });
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -38,7 +52,12 @@ export default function Filters({ onSearch, resetKey, onClearFilters }: Props) {
     };
     onSearch(filters);
   };
-
+if (isLoading) {
+  return <div className={css.filtersContainer}><Loader /></div>;
+  }
+  if (isError || !filterOptions) {
+  return <div className={css.filtersContainer}> <ErrorMessage onRetry={() => refetch()} /></div>;
+}
   return (
     <div className={css.filtersContainer}>
       <form key={resetKey} onSubmit={handleSubmit} className={css.form}>
@@ -64,58 +83,31 @@ export default function Filters({ onSearch, resetKey, onClearFilters }: Props) {
           <h3 className={css.title}>Filters</h3>
           <fieldset className={css.filterGroup}>
             <legend className={css.filterLegend}>Camper form</legend>
-            <label className={css.filterOption}>
-              <input type="radio" name="form" value="alcove" />
-              Alcove
-            </label>
-            <label className={css.filterOption}>
-              <input type="radio" name="form" value="panel_van" />
-              Panel Van
-            </label>
-            <label className={css.filterOption}>
-              <input type="radio" name="form" value="integrated" />
-              Integrated
-            </label>
-
-            <label className={css.filterOption}>
-              <input type="radio" name="form" value="semi_integrated" />
-              Semi Integrated
-            </label>
+            {filterOptions?.forms?.map((form) => (
+              <label key={form} className={css.filterOption}>
+                <input type="radio" name="form" value={form} />
+                {formatValue(form)}
+              </label>
+            ))}
           </fieldset>
           <fieldset className={css.filterGroup}>
             <legend className={css.filterLegend}>Engine</legend>
-            <label className={css.filterOption}>
-              <input type="radio" name="engine" value="diesel" />
-              Diesel
-            </label>
-
-            <label className={css.filterOption}>
-              <input type="radio" name="engine" value="petrol" />
-              Petrol
-            </label>
-
-            <label className={css.filterOption}>
-              <input type="radio" name="engine" value="hybrid" />
-              Hybrid
-            </label>
-
-            <label className={css.filterOption}>
-              <input type="radio" name="engine" value="electric" />
-              Electric
-            </label>
+            {filterOptions?.engines?.map((engine) => (
+              <label key={engine} className={css.filterOption}>
+                <input type="radio" name="engine" value={engine} />
+                {formatValue(engine)}
+              </label>
+            ))}
           </fieldset>
+
           <fieldset className={css.filterGroup}>
             <legend className={css.filterLegend}>Transmission</legend>
-
-            <label className={css.filterOption}>
-              <input type="radio" name="transmission" value="automatic" />
-              Automatic
-            </label>
-
-            <label className={css.filterOption}>
-              <input type="radio" name="transmission" value="manual" />
-              Manual
-            </label>
+            {filterOptions?.transmissions?.map((transmission) => (
+              <label key={transmission} className={css.filterOption}>
+                <input type="radio" name="transmission" value={transmission} />
+                {formatValue(transmission)}
+              </label>
+            ))}
           </fieldset>
         </div>
         <div className={css.filterBtn}>
