@@ -3,14 +3,14 @@
 
   margin: 0 auto;
   width: 100%;
-  height: 761px;
-  max-width: 1440px;
+  min-height: 761px;
+  /* max-width: 1440px; */
+  height: 100svh;
   overflow: hidden;
 }
 .backgroundImage {
-  margin-top: 7px;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
   z-index: 0;
 }
 .overlay {

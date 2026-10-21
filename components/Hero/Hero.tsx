@@ -11,7 +11,7 @@ export default function Hero() {
         fill
         priority
         fetchPriority="high"
-        sizes="(max-width: 1440px) 100vw, 1440px"
+        sizes="100vw"
         className={css.backgroundImage}
       />
       <div className={css.overlay} />
@@ -25,7 +25,7 @@ export default function Hero() {
         <Link className={`${css.link} a`} href="/catalog">
           View Now
         </Link>
-      </div>
+        </div>
     </section>
   );
 }
