@@ -14,6 +14,7 @@ import { useQuery } from "@tanstack/react-query";
 import { formatValue } from "@/lib/utils/utils";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loader from "../Loader/Loader";
+import Button from "../Button/Button";
 
 type Props = {
   onSearch: (filters: CamperFilters) => void;
@@ -111,17 +112,17 @@ if (isLoading) {
           </fieldset>
         </div>
         <div className={css.filterBtn}>
-          <button className={`${css.submitBtn} ${css.btn}`} type="submit">
+          <Button className={`${css.submitBtn} ${css.btn}`} type="submit">
             Search
-          </button>
-          <button
+          </Button>
+          <Button
             className={`${css.clearBtn} ${css.btn}`}
             type="button"
             onClick={onClearFilters}
           >
             <IoClose className={css.clearIcon} size={24} />
             Clear filters
-          </button>
+          </Button>
         </div>
       </form>
     </div>

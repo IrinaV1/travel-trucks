@@ -154,17 +154,12 @@
 .submitBtn {
   color: #fff;
   background-color: #829b91;
-  transition:
-    background-color 200ms ease,
-    transform 150ms ease;
 }
 .submitBtn:hover,
 .submitBtn:focus-visible {
   background-color: #6d7b75;
 }
-.submitBtn:active {
-  transform: scale(0.97);
-}
+
 .clearBtn {
   border: 1px solid #dadde1;
   color: #101828;
@@ -173,9 +168,6 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  transition:
-    border-color 200ms ease,
-    transform 150ms ease;
 }
 
 .clearIcon {
@@ -190,6 +182,5 @@
 }
 
 .clearBtn:active {
-  transform: scale(0.97);
   border-color: #6d7b75;
 }

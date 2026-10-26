@@ -1,6 +1,7 @@
 import css from "./NotFoundCampers.module.css";
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
+import Button from "../Button/Button";
 
 type Props = {
   onClearFilters: () => void;
@@ -26,21 +27,21 @@ export default function NotFoundCampers({ onClearFilters }: Props) {
         </p>
       </div>
       <div className={css.filterBtn}>
-        <button
+        <Button
           className={`${css.clearBtn} ${css.btn}`}
           type="button"
           onClick={onClearFilters}
         >
           <IoClose className={css.clearIcon} size={24} />
           Clear filters
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
           className={`${css.submitBtn} ${css.btn} a`}
           onClick={() => window.location.reload()}
         >
           View all campers
-        </button>
+        </Button>
       </div>
     </div>
   );
