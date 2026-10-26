@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import css from "./CamperCard.module.css";
-import Link from "next/link";
 import { FaStar } from "react-icons/fa";
 import { MdDirectionsCar } from "react-icons/md";
 import { CiMap } from "react-icons/ci";
@@ -10,6 +9,7 @@ import { CatalogCamper } from "@/types/camper";
 import { BsEvStation, BsFuelPump } from "react-icons/bs";
 import { TbAutomaticGearbox, TbManualGearbox } from "react-icons/tb";
 import { formatValue } from "@/lib/utils/utils";
+import ButtonLink from "../ButtonLink/ButtonLink";
 
 type CardProps = {
   camper: CatalogCamper;
@@ -75,14 +75,14 @@ export default function CamperCard({ camper }: CardProps) {
             <span className={css.itemTitle}>{formatValue(camper.form)}</span>
           </li>
         </ul>
-        <Link
+        <ButtonLink
           className={`${css.link} a`}
           href={`/catalog/${camper.id}`}
           target="_blank"
           rel="noopener noreferrer"
         >
           Show more
-        </Link>
+        </ButtonLink>
       </div>
     </div>
   );

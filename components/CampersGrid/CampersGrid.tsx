@@ -9,6 +9,7 @@ import LoadingModal from "../LoadingModal/LoadingModal";
 import { CamperFilters } from "@/types/camper";
 import CamperCard from "../CamperCard/CamperCard";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import Button from "../Button/Button";
 
 type Props = {
   filters: CamperFilters;
@@ -60,14 +61,14 @@ export default function CampersGrid({ filters, onClearFilters }: Props) {
           )}
         </div>
         {hasNextPage && (
-          <button
+          <Button
             type="button"
             onClick={() => fetchNextPage()}
             disabled={isFetchingNextPage}
             className={css.btnLoad}
           >
             Load More
-          </button>
+          </Button>
         )}
       </div>
     </>

@@ -1,7 +1,6 @@
-import Link from "next/link";
-
 import css from "./not-found.module.css";
 import Image from "next/image";
+import ButtonLink from "@/components/ButtonLink/ButtonLink";
 
 export default function NotFound() {
   return (
@@ -21,9 +20,9 @@ export default function NotFound() {
         </p>
         <p className={css.text}>It may have been moved or no longer exists.</p>
       </div>
-      <Link href="/" className={css.btn}>
+      <ButtonLink href="/" className={css.btn}>
         Back to Home
-      </Link>
+      </ButtonLink>
     </div>
   );
 }

@@ -1,6 +1,6 @@
-import Link from "next/link";
 import css from "./Hero.module.css";
 import Image from "next/image";
+import ButtonLink from "../ButtonLink/ButtonLink";
 
 export default function Hero() {
   return (
@@ -22,9 +22,9 @@ export default function Hero() {
             You can find everything you want in our catalog
           </p>
         </div>
-        <Link className={`${css.link} a`} href="/catalog">
+        <ButtonLink className={`${css.link} a`} href="/catalog">
           View Now
-        </Link>
+        </ButtonLink>
         </div>
     </section>
   );

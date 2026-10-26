@@ -7,6 +7,7 @@ import { bookFormSchema, BookFormValues } from "./bookFormSchema";
 import { MdErrorOutline } from "react-icons/md";
 import { createBookingRequest } from "@/lib/api/clientApi";
 import toast from "react-hot-toast";
+import Button from "../Button/Button";
 
 const initialValues: BookFormValues = {
   name: "",
@@ -124,9 +125,9 @@ export default function BookForm({ camperId }: BookFormProps) {
                 />
               </div>
             </fieldset>
-            <button type="submit" className={css.btn} disabled={isSubmitting}>
+            <Button type="submit" className={css.btn} disabled={isSubmitting}>
               Send
-            </button>
+            </Button>
           </Form>
         )}
       </Formik>

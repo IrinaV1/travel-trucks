@@ -36,28 +36,7 @@
   color: #101828;
 }
 .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 192px;
   height: 56px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-  border-radius: 200px;
-  color: #fff;
-  background-color: #829b91;
-  transition:
-    background-color 200ms ease,
-    transform 150ms ease;
-}
-
-.btn:hover,
-.btn:focus-visible {
-  background-color: #6d7b75;
-}
-
-.btn:active {
-  transform: scale(0.97);
+ 
 }
