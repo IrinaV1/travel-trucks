@@ -7,7 +7,6 @@
   justify-content: flex-start;
   background-color: #f7f7f7;
   border-bottom: 1px solid #f2f4f7;
-
   width: 100%;
   height: 72px;
 }
@@ -57,4 +56,26 @@
 
 .item a.active {
   color: #829b91;
+}
+
+@media screen and (max-width: 1439px) {
+.logo {
+    margin-right: 25%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+.logo {
+    margin-right: auto;
+  }
+
+  .navigation {
+    justify-content: flex-end;
+  }
+
+  .list {
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+  }
 }
