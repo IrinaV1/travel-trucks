@@ -39,3 +39,10 @@
   transform: scale(0.97);
   border-color: #6d7b75;
 }
+
+@media screen and (max-width: 767px) {
+  .grid {
+    width: 100%;
+    min-width: 0;
+  }
+}
