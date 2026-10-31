@@ -53,12 +53,21 @@ export default function Filters({ onSearch, resetKey, onClearFilters }: Props) {
     };
     onSearch(filters);
   };
-if (isLoading) {
-  return <div className={css.filtersContainer}><Loader /></div>;
+  if (isLoading) {
+    return (
+      <div className={css.filtersContainer}>
+        <Loader />
+      </div>
+    );
   }
   if (isError || !filterOptions) {
-  return <div className={css.filtersContainer}> <ErrorMessage onRetry={() => refetch()} /></div>;
-}
+    return (
+      <div className={css.filtersContainer}>
+        {" "}
+        <ErrorMessage onRetry={() => refetch()} />
+      </div>
+    );
+  }
   return (
     <div className={css.filtersContainer}>
       <form key={resetKey} onSubmit={handleSubmit} className={css.form}>

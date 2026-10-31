@@ -184,3 +184,37 @@
 .clearBtn:active {
   border-color: #6d7b75;
 }
+.filtersOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.filtersPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(90%, 400px);
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  padding: 24px;
+}
+
+@media screen and (max-width: 1439px) {
+  .filtersContainer {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .filtersContainer {
+    width: 100%;
+    height: auto;
+  }
+
+  .inputWrapper {
+    width: 100%;
+  }
+}
