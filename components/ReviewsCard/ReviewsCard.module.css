@@ -1,10 +1,10 @@
 .containerReviews {
   display: flex;
   flex-direction: column;
-
   border-radius: 16px;
   padding: 16px;
-  width: 623px;
+  width: 100%;
+  max-width: 623px;
   height: 180px;
   background-color: #f7f7f7;
 }
@@ -79,4 +79,12 @@
   height: 16px;
   color: #dadde1;
   flex-shrink: 0;
+}
+@media screen and (max-width: 1439px) {
+  .containerReviews {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
 }
