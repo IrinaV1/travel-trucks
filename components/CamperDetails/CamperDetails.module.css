@@ -5,6 +5,8 @@
   border-radius: 16px;
   padding: 24px;
   width: 650px;
+  max-width: 100%;
+  min-width: 0;
   height: 304px;
   background-color: #f7f7f7;
   padding: 24px;
@@ -72,4 +74,28 @@
 }
 .description::-webkit-scrollbar {
   display: none;
+}
+@media screen and (max-width: 1439px) {
+  .containerCamperDetails {
+    width: 100%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .containerCamperDetails {
+    padding: 16px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .infoText,
+  .description {
+    font-size: 14px;
+  }
+  .price {
+    font-size: 22px;
+  }
+  .infoCamper {
+    margin-bottom: 16px;
+  }
 }

@@ -56,6 +56,14 @@ export default function SwiperCamper({ images = [] }: SwiperCamperProps) {
           loop
           spaceBetween={32}
           slidesPerView={4}
+          breakpoints={{
+            768: {
+              spaceBetween: 12,
+            },
+            0: {
+              spaceBetween: 4,
+            },
+          }}
           freeMode
           watchSlidesProgress
           modules={[FreeMode, Thumbs]}

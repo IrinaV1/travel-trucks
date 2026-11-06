@@ -36,3 +36,23 @@
   flex-direction: column;
   gap: 24px;
 }
+
+@media screen and (max-width: 1439px) {
+.camperDetailsContainer {
+    flex-direction: column;
+    align-items: center;
+      width: 100%;
+      gap: 20px;
+  }
+     .camperDetailsWrapper {
+       width: 100%;
+     }
+    .feedbackContainer {
+    flex-direction: column;
+      width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+}
