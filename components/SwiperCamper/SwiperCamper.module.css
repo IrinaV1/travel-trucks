@@ -49,13 +49,13 @@
 
 @media screen and (max-width: 1439px) {
   .gallery {
-    margin-bottom: 20px;
+    width: 100%;
+    margin-bottom: 16px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .gallery {
-    width: 100%;
     max-width: 100%;
     height: auto;
   }

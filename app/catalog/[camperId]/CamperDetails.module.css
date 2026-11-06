@@ -38,21 +38,24 @@
 }
 
 @media screen and (max-width: 1439px) {
-.camperDetailsContainer {
+  .camperDetailsContainer {
     flex-direction: column;
     align-items: center;
-      width: 100%;
-      gap: 20px;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 66px;
   }
-     .camperDetailsWrapper {
-       width: 100%;
-     }
-    .feedbackContainer {
+  .camperDetailsWrapper {
+    width: 100%;
+  }
+  .feedbackContainer {
     flex-direction: column;
-      width: 100%;
-    }
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 767px) {
-
+  .camperDetailsContainer {
+    margin-bottom: 44px;
+  }
 }
