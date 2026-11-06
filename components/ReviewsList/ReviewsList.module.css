@@ -1,24 +1,23 @@
 .reviewsList {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    max-height: 384px;
-width: 100%;
-    max-width: 623px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 0;
-    margin: 0;
-
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-height: 384px;
+  width: 100%;
+  max-width: 623px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
 }
-.reviewsList>li {
-    flex-shrink: 0;
+.reviewsList > li {
+  flex-shrink: 0;
 }
 @media screen and (max-width: 1439px) {
-.reviewsList {
-        max-width: 100%;
-    }
-
+  .reviewsList {
+    max-width: 100%;
+  }
 }
 
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+}
